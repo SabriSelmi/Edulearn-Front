@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import CourseItem from '../coursecomponent/courseitem';
-
+import {NavLink} from "react-router-dom";
 
 
 
@@ -78,7 +78,7 @@ handleClick = (event) => {
         const currentState = this.state.disabled;
         this.setState({ disabled:!currentState }); 
     }
-    else if(this.state.currentPage!=1){
+    else if(this.state.currentPage!==1){
         this.setState({
             currentPage: this.state.currentPage-1,
           });
@@ -100,22 +100,22 @@ handleClick = (event) => {
 
     const renderPageNumbers = pageNumbers.map(number => {
       return (
-<li class="page-item"><a   key={number}
+<li className="page-item"><NavLink to="#"  key={number}
           id={number}
-          onClick={this.handleClick} class="page-link active" style={{border:"1px solid #dee2e6" , fontSize:"18px" ,fontWeight:"600" }}>{number}</a></li>
+          onClick={this.handleClick} className="page-link active" style={{border:"1px solid #dee2e6" , fontSize:"18px" ,fontWeight:"600" }}>{number}</NavLink></li>
       );
     });
     return (
  <div>
-            			<div class="row grid" style={{marginTop:"20px"}}>
+            			<div className="row grid" style={{marginTop:"20px"}}>
              {currentTodos.map((el,i)=><CourseItem course ={el}  key={i}/>)}
 
    </div>
    <nav aria-label="Page navigation example">
-					<ul class="pagination">
-                    <li className={this.state.disabled?"page-item disabled":"page-item"} style={{border:"1px solid #dee2e6"}}  ><a class="page-link fa fa-angle-left" tabindex="-1" onClick={this.handleClickprec} ></a></li>
+					<ul className="pagination">
+                    <li className={this.state.disabled?"page-item disabled":"page-item"} style={{border:"1px solid #dee2e6"}}  ><NavLink to="#" className="page-link fa fa-angle-left" tabindex="-1" onClick={this.handleClickprec} ></NavLink></li>
                {renderPageNumbers}
-               <li className={this.state.disabled?"page-item disabled":"page-item"} style={{border:"1px solid #dee2e6"}}><a class="page-link fa fa-angle-right" onClick={this.handleClicknext}></a></li>
+               <li className={this.state.disabled?"page-item disabled":"page-item"} style={{border:"1px solid #dee2e6"}}><NavLink to="#" className="page-link fa fa-angle-right" onClick={this.handleClicknext}></NavLink></li>
             </ul>
    </nav>
 
@@ -164,14 +164,3 @@ export default Coursefilter;
 
 
 
-   {/* <nav aria-label="Page navigation example">
-					<ul class="pagination">
-						<li class="page-item disabled"><a class="page-link fa fa-angle-left" href="#" tabindex="-1"></a></li>
-						<li class="page-item"><a class="page-link active" href="#">1</a></li>
-						<li class="page-item"><a class="page-link" href="#">2</a></li>
-						<li class="page-item"><a class="page-link dotted" href="#">...</a></li>
-						<li class="page-item"><a class="page-link" href="#">5</a></li>
-						<li class="page-item"><a class="page-link" href="#">6</a></li>
-						<li class="page-item"><a class="page-link fa fa-angle-right" href="#"></a></li>
-					</ul>
-          </nav> */}

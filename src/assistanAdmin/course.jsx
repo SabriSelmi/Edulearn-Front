@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import {NavLink} from "react-router-dom";
 
 
 class Course extends Component{
@@ -90,8 +90,8 @@ class Course extends Component{
                                                     <td>{el.details}</td>
                                                     <td>{el.seats}</td>
                                                     <td>{el.value}</td>
-                                                    <td><a href="javascript:void(0)" className="" data-toggle="tooltip" title="Edit"><i className="fa fa-check"></i></a>
-															<a href="javascript:void(0)" className="text-inverse" title="Delete" data-toggle="tooltip"><i className="fa fa-trash"></i></a></td>
+                                                    <td><NavLink to="#" className="" data-toggle="tooltip" title="Edit"><i className="fa fa-check"></i></NavLink>
+															<NavLink to="#"  className="text-inverse" title="Delete" data-toggle="tooltip"><i className="fa fa-trash"></i></NavLink></td>
                                                     </tr>
                                                      )}
 													

@@ -62,7 +62,7 @@ class Navbar extends Component{
                     <div className="row">
                         <div className={`col-sm-12 `}>
 
-                            <a className="rs-menu-toggle"><i className="fa fa-bars"></i>Menu</a>
+                            <NavLink to="" className="rs-menu-toggle"><i className="fa fa-bars"></i>Menu</NavLink>
                             <nav className="rs-menu">
                                 <ul className="nav-menu">
                                     <li><NavLink className="ml-2"
@@ -72,7 +72,7 @@ class Navbar extends Component{
                                         Home
                                     </NavLink></li>
                                     {menuItems.map(menuItem =>
-                                        <li>
+                                        <li key={menuItem}>
                                             <NavLink className="ml-5"
                                                 style={this.state.active === menuItem ? activeStyle : Style}
                                                 onClick={this._handleClick.bind(this, menuItem)}

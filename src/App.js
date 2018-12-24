@@ -7,8 +7,8 @@ import Header from "./components/Header";
 import Home from "./components/Home"
 import {Route} from "react-router-dom";
 import Profile from "./components/Profile";
-import { Security, ImplicitCallback, SecureRoute } from '@okta/okta-react';
-import Login from "./authent/login";
+//import { Security, ImplicitCallback, SecureRoute } from '@okta/okta-react';
+//import Login from "./authent/login";
 // hello world
 
 
@@ -19,7 +19,7 @@ import Footer from "./components/footer";
 import Contact from "./components/contact";
 import Course from "./components/coursecomponent/course";
 import Event from "./components/eventcomponent/event";
-import axios from "axios";
+//import axios from "axios";
 
 /*const config = {
     issuer: 'https://dev-387251.oktapreview.com/oauth2/default',

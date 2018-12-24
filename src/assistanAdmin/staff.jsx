@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import {NavLink} from "react-router-dom";
 
 
 
@@ -42,8 +42,8 @@ class Staff extends Component{
 														<td>rajesh@gmail.com</td>
                                                         <td>22,tilak appt. surat</td>
                                                         <td>11/11/1992</td>
-														<td><a href="javascript:void(0)" className="" data-toggle="tooltip" title="Edit"><i className="fa fa-check"></i></a>
-															<a href="javascript:void(0)" className="text-inverse" title="Delete" data-toggle="tooltip"><i className="fa fa-trash"></i></a></td>
+														<td><NavLink to="#" className="" data-toggle="tooltip" title="Edit"><i className="fa fa-check"></i></NavLink>
+															<NavLink to="#" className="text-inverse" title="Delete" data-toggle="tooltip"><i className="fa fa-trash"></i></NavLink></td>
 													</tr>
 													
 												</tbody>

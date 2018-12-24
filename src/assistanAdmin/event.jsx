@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import {NavLink} from "react-router-dom";
 
 
 class Event extends Component{
@@ -61,8 +61,8 @@ class Event extends Component{
                                                     <td>{el.location}</td>
                                                     <td>{el.history}</td>
                                                     <td>{el.like}</td>
-                                                    <td><a href="javascript:void(0)" className="" data-toggle="tooltip" title="Edit"><i className="fa fa-check"></i></a>
-															<a href="javascript:void(0)" className="text-inverse" title="Delete" data-toggle="tooltip"><i className="fa fa-trash"></i></a></td>
+                                                    <td><NavLink to="#" className="" data-toggle="tooltip" title="Edit"><i className="fa fa-check"></i></NavLink>
+															<NavLink to="#" className="text-inverse" title="Delete" data-toggle="tooltip"><i className="fa fa-trash"></i></NavLink></td>
                                                     </tr>
                                                      )}
 													
@@ -84,7 +84,7 @@ class Event extends Component{
 }
 export default Event;
 
-{/*	<td>1</td>
+/*	<td>1</td>
 														<td>Freshers Day reception</td>
 														<td>28 June 2017</td>
 														<td>12.30AM-05.30PM</td>
@@ -92,5 +92,5 @@ export default Event;
 															<span className="label label-sm label-success">paid</span>
 														</td>
 														<td>Mechanical</td>
-														<td><a href="javascript:void(0)" className="" data-toggle="tooltip" title="Edit"><i className="fa fa-check"></i></a>
-															<a href="javascript:void(0)" className="text-inverse" title="Delete" data-toggle="tooltip"><i className="fa fa-trash"></i></a></td> */}
+														<td><NavLink to="#" className="" data-toggle="tooltip" title="Edit"><i className="fa fa-check"></i></NavLink>
+															<NavLink to="#" className="text-inverse" title="Delete" data-toggle="tooltip"><i className="fa fa-trash"></i></NavLink></td> */
