@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { MDBPopover, MDBPopoverBody, MDBPopoverHeader, MDBContainer } from "mdbreact";
 
 
 
   
  const Eventitem =(props) => {
-   console.log(props.onclick);
+   console.log("123",props);
  
     return (
 	
@@ -17,9 +17,9 @@ import { MDBPopover, MDBPopoverBody, MDBPopoverHeader, MDBContainer } from "mdbr
 	                        	<div className="col-md-6">
 	                        	    <div className="event-img">
 								
-	                        <img src='images/events/4.jpg' alt=''/>
+	                        <img src={props.event.image} alt=''/>
                                         <a className="image-link"title="University Tour 2018">
-										<i class="fa fa-heart-o" aria-hidden="true" onClick={props.onclick}></i></a>
+										<i class="fa fa-heart-o" aria-hidden="true"></i></a>
                                  
 	                        	    </div>                        		
 	                        	</div>
@@ -54,11 +54,14 @@ import { MDBPopover, MDBPopoverBody, MDBPopoverHeader, MDBContainer } from "mdbr
             component="p"
             placement="right"
             popoverBody="personnes qui aiment ce evenement."
-			className="light-blue-text"
+			className="light-blue-text ml-2"
           >
             <MDBPopoverHeader>Liste des utilisateurs</MDBPopoverHeader>
             <MDBPopoverBody>
-					firas hamdouni<br/>sabri selmi
+	 {props.event.userlike.map((el,i)=>	  
+    <p key={i}>{el.nom}</p>
+
+	 )}
             </MDBPopoverBody>
           </MDBPopover></p>
 	                    	        	</div>
@@ -71,36 +74,36 @@ import { MDBPopover, MDBPopoverBody, MDBPopoverHeader, MDBContainer } from "mdbr
                     </div>
 				
 					<div className="col-lg-6 col-md-12 d-flex flex-wrap">
-					 {props.image.map((el,i)=>	   
+					 {props.event.images.map((el,i)=>	   
 						<div className="event-item">
 						<div className="row rs-vertical-middle col">
 							<div className="col-md">
 						<div className="event-img">
-					 <img id="img" class="img-thumbnail rounded event-img" src={el.src} key={i} style={{width:"120px",height:"120px", margin:"5px"}}
+					 <img  class="img-thumbnail rounded event-img" key={i}  src={el.src} style={{width:"120px",height:"120px", margin:"5px"}}
 					 /> 
-                                        <a className="image-link" title="University Tour 2018">
+                                        <a className="image-link" title={props.event.name}>
                                             <i className="fa fa-search" data-toggle="modal" data-target="#myModal"></i>
                                         </a>
 	                        	    </div>   
 									</div>
 					</div>
 										{/*modal */}
-										<div class="modal" id="myModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
 
-
-	 {props.image.map((el,i)=>	  
+	 
+	 										<div class="modal" id="myModal">
+											 <div class="modal-dialog" >
+											 <div class="modal-content">	
+											 {props.event.images.map((el,i)=>
       <div class="modal-body">
-	  <img className="img-fluid thumbnail w-100" src={el.src}  key={i} alt=''/>
+	  <img className="img-fluid thumbnail w-100" key={i} src={el.src}/>
       </div>
 
 	 )}
-
-    </div>
+	  </div>
   </div>
 </div>
-                    </div>   )}
+
+                    </div>     )} 
 		</div>			
 					
 					</div>

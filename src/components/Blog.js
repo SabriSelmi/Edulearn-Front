@@ -3,7 +3,6 @@ import StartBlog from '../componentsBlog/startBlog';
 import ItemsBlog from "../componentsBlog/itemsBlog";
 
 
-
 class Blog extends Component{
     render(){
         return(

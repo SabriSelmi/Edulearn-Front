@@ -2,9 +2,10 @@ import React from "react";
 
 import AddProfessor from "./addProfessor";
 import AddStudent from "./addStudent";
-
-import UserProfile from "./userProfile"
-
+import EditStudent from "./editstudent";
+import UserProfile from "./userProfile";
+import EditProf from "./editproff";
+import Editevent from "./editevent";
 import {Route} from "react-router-dom";
 
 import MiniDrawer from "./sidebar";
@@ -35,7 +36,9 @@ const Navigation = (props) => (
         <Route path="/profile/userProfile" render ={()=> < UserProfile/>}/>
         <Route path="/profile/addProfessor" render ={()=>< AddProfessor/>}/>
         <Route path="/profile/addStudent" component ={AddStudent}/>
-
+        <Route exact  path="/profile/editStudent/:id" render ={(props)=> < EditStudent id={props.match.params.id}/>}/>
+        <Route exact  path="/profile/editProfessor/:id" render ={(props)=> < EditProf id={props.match.params.id}/>}/>
+        <Route exact  path="/profile/editEvent/:id" render ={(props)=> < Editevent id={props.match.params.id}/>}/>
 </div>
 
 

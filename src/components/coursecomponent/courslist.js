@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import CourseItem from '../coursecomponent/courseitem';
-
-
+import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+const axios = require('axios');
 
 
 
@@ -16,42 +17,10 @@ class Coursefilter extends Component {
       seats:'',
       value:'',
       courses :
-       [{ nom:'Science',
-      date:'28-06-2017',
-      duration:' 4 year',
-      details:'',
-      seats:'70 SEATS',
-      value:'$450'},
-      { nom:'Math',
-      date:'28-06-2019',
-      duration:' 3 year',
-      details:'',
-      seats:'80 SEATS',
-      value:'$230'},
-      { nom:'Math',
-      date:'28-06-2019',
-      duration:' 3 year',
-      details:'',
-      seats:'80 SEATS',
-      value:'$230'},
-      { nom:'Math',
-      date:'28-06-2019',
-      duration:' 3 year',
-      details:'',
-      seats:'80 SEATS',
-      value:'$230'}],
+       [],
       currentPage: 1,
-      todosPerPage: 2,
+      todosPerPage: 6,
       disabled:true,
-  coursesscience :
-  [{ nom:'Science',
- date:'28-06-2017',
- duration:' 4 year',
- details:'',
- seats:'70 SEATS',
- value:'$450'}],
-
-
 }
 
   
@@ -71,7 +40,14 @@ handleClick = (event) => {
     });
 
   }
-
+  componentDidMount =()=>{
+    axios.get('/course').then(res=>
+      this.setState({
+        courses:res.data
+      }))    
+    
+  }
+  
 
   handleClickprec = (event) => {
     if(this.state.currentPage===2){

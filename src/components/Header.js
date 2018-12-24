@@ -17,7 +17,7 @@ class Header extends Component {
               <header id="rs-header" className="rs-header" >
               <Toolbar/>
               <HeaderTopStart/>
-              <Navbar isIdent={this.props.isIdent}/>
+              <Navbar />
               <Canvas/>
               </header>
 

@@ -5,21 +5,21 @@ import BlogDetails from "./components/BlogDetails";
 import Header from "./components/Header";
 //import Home from "./components/HomeAuth";
 import Home from "./components/Home"
-import {Route} from "react-router-dom";
-import Profile from "./components/Profile";
+// import Profile from "./components/Profile";
+import Profile from "./components/profile";
 import { Security, ImplicitCallback, SecureRoute } from '@okta/okta-react';
 import Login from "./authent/login";
 // hello world
+import Contact from './components/contactcomponent/contact';
+import Event from './components/eventcomponent/event';
+import Course from './components/coursecomponent/course';
+import Navbar from './componentsHeader/navbar.jsx';
 
-
-
-
+import { BrowserRouter as Router, Route, Link,Redirect } from "react-router-dom";
 import ScrollUp from "./components/scrollUp";
 import Footer from "./components/footer";
-import Contact from "./components/contact";
-import Course from "./components/coursecomponent/course";
-import Event from "./components/eventcomponent/event";
 import axios from "axios";
+
 
 /*const config = {
     issuer: 'https://dev-387251.oktapreview.com/oauth2/default',
@@ -67,6 +67,7 @@ aspire1=(x)=>{
                       onAuthRequired={onAuthRequired}
             >*/
             <div className="App">
+            <Navbar />
                 <Header isIdent={this.state.nav}/>
                 <Route exact path="/" render={()=><Home />}/>
                 <Route path="/about" render={()=> <About/>}/>
@@ -76,7 +77,7 @@ aspire1=(x)=>{
                 <Route path ="/contact" render={()=><Contact/>}/>
                 <Route path="/course" render={()=><Course/>}/>
                 <Route path="/event" render={()=><Event/>}/>
-                <Route  path="/profile" render ={()=><Profile aspire={(x,y)=>this.aspire(x,y)} stateApp={this.state} aspire1={(x)=>this.aspire1(x)}/>}/>
+                <Route   path="/profile" render ={()=><Profile aspire={(x,y)=>this.aspire(x,y)} stateApp={this.state} aspire1={(x)=>this.aspire1(x)}/>}/>
                 {/*<Route exact path="/login" render={()=><Login  baseUrl="https://dev-387251.oktapreview.com"/>}/>
                 <Route path="/implicit/callback" component={ImplicitCallback}/>*/}
                 <ScrollUp/>

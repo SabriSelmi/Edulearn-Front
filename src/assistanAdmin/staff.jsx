@@ -1,16 +1,58 @@
 import React, { Component } from 'react';
-
+import axios from 'axios';
+import Proff from './prof';
+import { render } from 'react-dom';
 
 
 
 class Staff extends Component{
+	constructor(props){
+		super(props)
+        this.state = {
+            professors: [],
+      
+          };	
+
+			}
+
+			componentDidMount =()=>{
+				axios.get("/professors").then(res=>
+				  this.setState({
+					professors:res.data
+				  }))    
+		   
+		}
+		
+	
+	
+	
+	
+		
+		deleteStudent = id => {
+				axios.delete('/user/'+id).then((res) =>
+				this.setState({
+						...res.data
+					}))
+			   
+					axios.get("/professors").then(res=>
+						this.setState({
+							professors:res.data
+						}))    
+					 
+		  }
+	
+	
+			
+			renderStudent = student => {
+				return <Proff key={student._id} student={student} onClick={this.deleteStudent} onchange={this.onchange} />;
+			  }
+			
+
+
+
     render(){
         return(
-            <div className="page-content-wrapper col-lg-9 col-md-9 col-sm-9 m-3">
-    
-    
-         
-                
+            <div className="page-content-wrapper col-lg-9 col-md-9 col-sm-9 m-3">          
     <div className="row mb-5 mt-5">
 						<div className="col-md-12 col-sm-10 mb-5">
 							<div className="card  card-box">
@@ -23,7 +65,6 @@ class Staff extends Component{
 											<table className="table display product-overview mb-30" id="support_table">
 												<thead>
 													<tr>
-														<th>No</th>
 														<th>Name</th>
 														<th>Designation</th>
 														<th>Mobile</th>
@@ -34,17 +75,9 @@ class Staff extends Component{
 													</tr>
 												</thead>
 												<tbody>
-													<tr>
-														<td>1</td>
-                                                        <td>John Deo</td>
-														<td>librarian</td>
-														<td>46464646</td>
-														<td>rajesh@gmail.com</td>
-                                                        <td>22,tilak appt. surat</td>
-                                                        <td>11/11/1992</td>
-														<td><a href="javascript:void(0)" className="" data-toggle="tooltip" title="Edit"><i className="fa fa-check"></i></a>
-															<a href="javascript:void(0)" className="text-inverse" title="Delete" data-toggle="tooltip"><i className="fa fa-trash"></i></a></td>
-													</tr>
+													
+													{this.state.professors.map(this.renderStudent)}
+													
 													
 												</tbody>
 											</table>

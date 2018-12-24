@@ -6,47 +6,8 @@ class Course extends Component{
     constructor(props){
         super(props)
         this.state={
-          nom:'',
-          date:'',
-          duration:'',
-          details:'',
-          seats:'',
-          value:'',
-          courses :
-           [{ nom:'Science',
-          date:'28-06-2017',
-          duration:' 4 year',
-          details:'',
-          seats:'70 SEATS',
-          value:'$450'},
-          { nom:'Math',
-          date:'28-06-2019',
-          duration:' 3 year',
-          details:'',
-          seats:'80 SEATS',
-          value:'$230'},
-          { nom:'Math',
-          date:'28-06-2019',
-          duration:' 3 year',
-          details:'',
-          seats:'80 SEATS',
-          value:'$230'},
-          { nom:'Math',
-          date:'28-06-2019',
-          duration:' 3 year',
-          details:'',
-          seats:'80 SEATS',
-          value:'$230'}],
-          currentPage: 1,
-          todosPerPage: 2,
-          disabled:true,
-      coursesscience :
-      [{ nom:'Science',
-     date:'28-06-2017',
-     duration:' 4 year',
-     details:'',
-     seats:'70 SEATS',
-     value:'$450'}],
+
+          courses :[],
     
     
     }

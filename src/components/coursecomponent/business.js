@@ -1,45 +1,106 @@
-import React from 'react';
+import React, { Component } from 'react';
+import BusinessItem from './businessitem';
+const axios = require('axios');
 
 
- const Business = (props)=>{
-    return (
+class Businesslist extends Component{
+    constructor(props){
+        super(props)
+        this.state={
+          nom:'',
+          date:'',
+          duration:'',
+          details:'',
+          seats:'',
+          value:'',
+          sciencecourses :
+           [],
+          currentPage: 1,
+          todosPerPage: 6,
+          disabled:true,
+    }
+    
+      
+    }
+    
+    handleClick = (event) => {
+        this.setState({
+          currentPage: Number(event.target.id)
+        });
+        const currentState = this.state.disabled;
+        this.setState({ disabled:!currentState }); 
+      }
+    
+      handleClicknext = (event) => {
+        this.setState({
+          currentPage: this.state.currentPage+1
+        });
+    
+      }
+      componentDidMount =()=>{
+        axios.get('/businesscourse').then(res=>
+          this.setState({
+            sciencecourses:res.data
+          }))    
+        
+      }
+      
+    
+      handleClickprec = (event) => {
+        if(this.state.currentPage===2){
+            const currentState = this.state.disabled;
+            this.setState({ disabled:!currentState }); 
+        }
+        else if(this.state.currentPage!=1){
+            this.setState({
+                currentPage: this.state.currentPage-1,
+              });
+        }
+    
+      }
+      render() {
+        const { sciencecourses, currentPage, todosPerPage } = this.state;
+        const indexOfLastTodo = currentPage * todosPerPage;
+        const indexOfFirstTodo = indexOfLastTodo - todosPerPage;
+        const currentTodos = sciencecourses.slice(indexOfFirstTodo, indexOfLastTodo);
+        console.log(currentTodos)
+        const pageNumbers = [];
+        let length =Math.ceil(sciencecourses.length / todosPerPage)
+        for (let i = 1; i <= length; i++) {
+          pageNumbers.push(i);
+        }
+        console.log("aa"+pageNumbers[length-1])
+    
+        const renderPageNumbers = pageNumbers.map(number => {
+          return (
+    <li class="page-item"><a   key={number}
+              id={number}
+              onClick={this.handleClick} class="page-link active" style={{border:"1px solid #dee2e6" , fontSize:"18px" ,fontWeight:"600" }}>{number}</a></li>
+          );
+        });
+        return (
+     <div>
+                            <div class="row grid" style={{marginTop:"20px"}}>
+                 {currentTodos.map((el,i)=><BusinessItem course ={el}  key={i}/>)}
+    
+       </div>
+       <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                        <li className={this.state.disabled?"page-item disabled":"page-item"} style={{border:"1px solid #dee2e6"}}  ><a class="page-link fa fa-angle-left" tabindex="-1" onClick={this.handleClickprec} ></a></li>
+                   {renderPageNumbers}
+                   <li className={this.state.disabled?"page-item disabled":"page-item"} style={{border:"1px solid #dee2e6"}}><a class="page-link fa fa-angle-right" onClick={this.handleClicknext}></a></li>
+                </ul>
+       </nav>
+    
+       
+          </div>
+              
+        );
+      }
+    }
 
-					<div class="col-lg-4 col-md-6 grid-item filter1 " style={{marginTop:"20px"}}>
-		                <div class="course-item">
-		                    <div class="course-img">
-		                        <img src="images/courses/10.jpg" alt="" />
-		                        <span class="course-value"></span>
-		                        <div class="course-toolbar">
-		                    		<h4 class="course-category"><a href="#"></a></h4>
-		                        	<div class="course-date">
-		                        		<i class="fa fa-calendar"></i> 
-		                        	</div>
-		                        	<div class="course-duration">
-		                        		<i class="fa fa-clock-o"></i>
-		                        	</div>
-		                        </div>
-		                    </div>
-		                    <div class="course-body">
-		                    	<div class="course-desc">
-		                    		<h4 class="course-title"><a href="courses-details.html">Computer Engineering</a></h4>
-		                    		<p>
-		                    			Cras ultricies lacus consectetur, consectetur scelerisque arcu.Curabitur Aenean egestas a
-		                    			Nullam augue augue.
-		                    		</p>
-		                    	</div>
-		                    </div>
-		                    <div class="course-footer">
-		                    	<div class="course-seats">
-		                    		<i class="fa fa-users"></i> 70 SEATS
-		                    	</div>
-		                    	<div class="course-button">
-		                    		<a href="#">APPLY NOW</a>
-		                    	</div>
-		                    </div>
-		                </div>						
-					</div>
-    );
 
-}
 
-export default Business;
+
+
+export default Businesslist;

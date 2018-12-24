@@ -12,32 +12,12 @@ import LatestNews from "../componentsHome/latestNews";
 import PeopleSay from "../componentsHome/peopleSay";
 
 
-/*import "../css/style.css"
-import "../css/animate.css"
-import "../css/color-style.css"
-import "../css/magnific-popup.css"
-import "../css/off-canvas.css"
-import "../css/rsmenu-main.css"
-import "../css/rsmenu-transitions.css"
-import "../css/slick.css"
-import "../css/timeline.css"
-import "../css/responsive.css"*/
-
-
 class Home extends Component {
-    constructor(props){
-        super(props)
-        this.state={
-
-        }
-    }
-
     render() {
         return (
             <div style={{position:"relative"}}>
                <SliderArea/>
-                {/*<TitleCarousel login={()=>this.props.login()}/>*/}
-                <TitleCarousel/>
+               <TitleCarousel/>
                <Service/>
                <AboutUs/>
                <CoursesHome/>

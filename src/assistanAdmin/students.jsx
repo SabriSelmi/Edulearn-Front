@@ -1,8 +1,61 @@
 import React, { Component } from 'react';
+import trach from './image/trach.png';
+import edit from './image/edit.png';
+import Popup from "reactjs-popup";
+import Student from './student';
+import { render } from 'react-dom';
 
+const axios = require('axios');
+
+
+	  
 
 class Students extends Component{
+	constructor(props){
+		super(props)
+        this.state = {
+            students: [],
+      
+          };	
+
+			}
+
+
+		componentDidMount =()=>{
+			axios.get("/students").then(res=>
+			  this.setState({
+				students:res.data
+			  }))    
+       
+    }
+    
+
+
+
+
+    
+    deleteStudent = id => {
+            axios.delete('/user/'+id).then((res) =>
+            this.setState({
+                    ...res.data
+                }))
+           
+                axios.get("/students").then(res=>
+                    this.setState({
+                      students:res.data
+                    }))    
+                 
+      }
+
+
+        
+        renderStudent = student => {
+            return <Student key={student._id} student={student} onClick={this.deleteStudent} onchange={this.onchange} />;
+          }
+        
     render(){
+			
+        console.log(this.state.students)
         return(
         <div className="page-content-wrapper col-lg-9 col-md-9 col-sm-9 m-3">
 
@@ -18,9 +71,9 @@ class Students extends Component{
 											<table className="table display product-overview mb-30" id="support_table">
 												<thead>
 													<tr>
-														<th>No</th>
+													
 														<th>Name</th>
-														<th>department</th>
+														<th>departement</th>
 														<th>Mobile</th>
 														<th>Email</th>
 														<th>Admission Date</th>
@@ -28,18 +81,8 @@ class Students extends Component{
 													</tr>
 												</thead>
 												<tbody>
-													<tr>
-														<td>1</td>
-														<td>Jens Brincker</td>
-														<td>Science</td>
-														<td>123456</td>
-														<td>
-															firas@yahoo.fr
-														</td>
-														<td>11/11/1992</td>
-														<td><a href="javascript:void(0)" className="" data-toggle="tooltip" title="Edit"><i className="fa fa-check"></i></a>
-															<a href="javascript:void(0)" className="text-inverse" title="Delete" data-toggle="tooltip"><i className="fa fa-trash"></i></a></td>
-													</tr>
+                                                {this.state.students.map(this.renderStudent)}
+												
 													
 												</tbody>
 											</table>
@@ -49,11 +92,13 @@ class Students extends Component{
                   </div>
                   </div>
                   </div>
+		
                   
                             </div>
           
         )
     }
 
-}
+ }
 export default Students;
+

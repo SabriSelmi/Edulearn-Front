@@ -1,6 +1,42 @@
 import React,{Component} from "react";
+import { BrowserRouter as Router, Route, Link,Redirect } from "react-router-dom";
+import axios from "axios";
+import FlashMassage from 'react-flash-message';
 
 class AddStudent extends Component{
+constructor(props){
+    super(props)
+    this.state={
+     
+          
+						name:"",
+						lastname:"",
+						mobile:"",
+						email:"",
+						departement:"",
+						admissiondate:"",
+						type:"",
+						class:"",
+						dateofbirth:"",
+                        adresse:"",
+                        
+        
+    }
+
+
+
+}
+onchange=(e)=>{
+    this.setState({
+        [e.target.name]:e.target.value
+    })
+}
+onsubmit = (e) =>{
+    e.preventDefault();
+    axios.post('/student',{...this.state})
+    .then(res => console.log(res.data))
+    .catch(err => console.log("err"));
+}
     render(){
         return(
             <div className="page-content-wrapper col-lg-9 col-md-9 col-sm-9 m-3">
@@ -10,7 +46,7 @@ class AddStudent extends Component{
                             <div className=" pull-left">
                                 <div className="page-title">Add Student</div>
                             </div>
-
+                           
                         </div>
                     </div>
                     <div className="row">
@@ -28,8 +64,8 @@ class AddStudent extends Component{
                                                     <span className="required"> * </span>
                                                 </label>
                                                 <div className="col-md-8">
-                                                    <input type="text" name="firstname" placeholder="enter first name"
-                                                           className="form-control input-height"/>
+                                                    <input type="text" name="name" placeholder="enter first name"
+                                                           className="form-control input-height" onChange={this.onchange}  value={this.state.name} />
                                                 </div>
                                             </div>
                                             <div className="form-group row">
@@ -38,7 +74,7 @@ class AddStudent extends Component{
                                                 </label>
                                                 <div className="col-md-8">
                                                     <input type="text" name="lastname" placeholder="enter last name"
-                                                           className="form-control input-height"/>
+                                                           className="form-control input-height" value={this.state.lastname} onChange={this.onchange}/>
                                                 </div>
                                             </div>
                                             <div className="form-group row">
@@ -59,7 +95,7 @@ class AddStudent extends Component{
                                                                 className="fa fa-envelope text-info"></i></div>
                                                         </div>
                                                         <input type="email" className="form-control" id="nombre"
-                                                               name="email" placeholder="ejemplo@gmail.com" required/>
+                                                               name="email" placeholder="ejemplo@gmail.com" value={this.state.email} onChange={this.onchange} required/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -74,7 +110,7 @@ class AddStudent extends Component{
                                                                 className="fa fa-calendar text-info"></i></div>
                                                         </div>
                                                         <input type="calendar" className="form-control" id="nombre"
-                                                               name="calendar" placeholder="dd/mm/yy" required/>
+                                                               name="admissiondate" placeholder="dd/mm/yy" value={this.state.admissiondate} onChange={this.onchange} required/>
                                                     </div>
                                                     <input type="hidden" id="dtp_input2" value=""/>
                                                 </div>
@@ -84,12 +120,12 @@ class AddStudent extends Component{
                                                     <span className="required"> * </span>
                                                 </label>
                                                 <div className="col-md-8">
-                                                    <select className="form-control input-height" name="department">
+                                                    <select className="form-control input-height" name="departement" value={this.state.departement} onChange={this.onchange}>
                                                         <option value="">Select...</option>
-                                                        <option value="Category 1">Computer</option>
-                                                        <option value="Category 2">Mechanical</option>
-                                                        <option value="Category 3">Mathematics</option>
-                                                        <option value="Category 3">Commerce</option>
+                                                        <option value="computer">Computer</option>
+                                                        <option value="science">Science</option>
+                                                        <option value="humanities">Humanities</option>
+                                                        <option value="Diploma">Diploma</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -110,8 +146,8 @@ class AddStudent extends Component{
                                                     <span className="required"> * </span>
                                                 </label>
                                                 <div className="col-md-8">
-                                                    <input name="number" type="text" placeholder="mobile number"
-                                                           className="form-control input-height"/></div>
+                                                    <input name="mobile" type="text" placeholder="mobile number"
+                                                           className="form-control input-height"  value={this.state.mobile} onChange={this.onchange}/></div>
                                             </div>
                                             <div className="form-group row">
                                                 <label className="control-label col-md-3">Parents Name
@@ -143,7 +179,7 @@ class AddStudent extends Component{
                                                                 className="fa fa-calendar text-info"></i></div>
                                                         </div>
                                                         <input type="calendar" className="form-control" id="nombre"
-                                                               name="calendar" placeholder="dd/mm/yy" required/>
+                                                               name="dateofbirth" placeholder="dd/mm/yy" value={this.state.dateofbirth} onChange={this.onchange}  required/>
                                                     </div>
                                                     <input type="hidden" id="dtp_input5" value=""/>
                                                 </div>
@@ -154,7 +190,7 @@ class AddStudent extends Component{
                                                 </label>
                                                 <div className="col-md-8">
                                                     <textarea name="address" placeholder="address"
-                                                              className="form-control-textarea" rows="5"></textarea>
+                                                              className="form-control-textarea" rows="5" value={this.state.address} onChange={this.onchange} ></textarea>
                                                 </div>
                                             </div>
                                             <div className="form-group row">
@@ -167,8 +203,8 @@ class AddStudent extends Component{
                                             <div className="form-actions">
                                                 <div className="row">
                                                     <div className="offset-md-3 col-md-9">
-                                                        <button type="submit" className="btn btn-info m-r-20">Submit
-                                                        </button>
+                                                        <button type="submit" className="btn btn-info m-r-20" onClick={this.onsubmit}>
+                                                       <Link to='/profile/students'>Submit</Link> </button>
                                                         <button type="button" className="btn btn-default">Cancel
                                                         </button>
                                                     </div>

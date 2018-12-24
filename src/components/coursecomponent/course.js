@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 import Coursefilter from  './courslist';
-import Science from  './science';
+import ScienceList from  './science';
 import Business from  './business';
-import {Route, Link } from "react-router-dom";
+import Humanitiescourse from'./humanities';
+import Diplomacourse from'./diplomalist';
+import {
+	BrowserRouter as Router,
+	Route,
+	Link,
+	Redirect,
+	withRouter
+  } from "react-router-dom";
 
-
-
+ 
 const menuItems = [
 	'All',
 	'SCIENCE',
@@ -17,14 +24,16 @@ class Course extends Component {
 	constructor() {
 		super();
 		this.state = {
-			active: 'All'
+			active: 'All',
 		};
 	}	
+
 
 
 	_handleClick(menuItem) { 
 		this.setState({ active: menuItem });
 	  }
+	 
   render() {
 	const activeStyle = { 
 		fontSize: "15px",
@@ -71,10 +80,21 @@ class Course extends Component {
 			</button>
 		 )}
 
-			 <Route exact path="/course" component={Coursefilter} />
-			 <Route exact path="/course/All" component={Coursefilter} />
-			<Route path="/course/SCIENCE" component={Science} /> 
+			<Route  exact path="/course" component={Coursefilter} />
+			<Route exact path="/course/All" component={Coursefilter} />
+			<Route exact path="/course/SCIENCE" render={() => (
+  ((this.props.isAdmin===false))? (
+    <Redirect to="/"/>
+  ) : (
+<Route path="/course/SCIENCE" component={ScienceList} />
+  )
+)}/>
+		
 			<Route path="/course/BUSINESS" component={Business} />
+			
+			<Route path="/course/HUMANITIES" component={Humanitiescourse} />
+					
+			<Route path="/course/DIPLOMA" component={Diplomacourse} />
 			  
                 </div>
 				</div>
@@ -87,3 +107,4 @@ class Course extends Component {
 }
 
 export default Course;
+

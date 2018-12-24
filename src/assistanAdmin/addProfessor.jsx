@@ -1,10 +1,45 @@
 import React,{Component} from "react";
+import { BrowserRouter as Router, Route, Link,Redirect } from "react-router-dom";
+import axios from 'axios';
 import "./theme_style.css";
 import "./theme-color.css";
 import "./style.css"
 
 
 class AddProfessor extends Component{
+    constructor(props){
+        super(props)
+        this.state={
+         
+              
+                            name:"",
+                            lastname:"",
+                            mobile:"",
+                            email:"",
+                            departement:"",
+                            admissiondate:"",
+                            password:"",
+                            class:"",
+                            dateofbirth:"",
+                            adresse:"",
+                            
+            
+        }
+    
+    
+    
+    }
+    onchange=(e)=>{
+        this.setState({
+            [e.target.name]:e.target.value
+        })
+    }
+    onsubmit = (e) =>{
+        e.preventDefault();
+        axios.post('/professor',{...this.state})
+        .then(res => console.log(res.data))
+        .catch(err => console.log("err"));
+    }
     render(){
         return(
             <div className="page-content-wrapper col-lg-9 col-md-9 col-sm-9 m-3" >
@@ -34,7 +69,7 @@ class AddProfessor extends Component{
                                                     <span className="required"> * </span>
                                                 </label>
                                                 <div className="col-md-8">
-                                                    <input type="text" name="firstname" data-required="1"
+                                                    <input type="text" name="name" data-required="1" value={this.state.name}  onChange={this.onchange}  
                                                            placeholder="enter first name"
                                                            className="form-control input-height"/>
                                                 </div>
@@ -44,7 +79,7 @@ class AddProfessor extends Component{
                                                     <span className="required"> * </span>
                                                 </label>
                                                 <div className="col-md-8">
-                                                    <input type="text" name="lastname" data-required="1"
+                                                    <input type="text" name="lastname" data-required="1" onChange={this.onchange}  value={this.state.lastname}
                                                            placeholder="enter last name"
                                                            className="form-control input-height"/>
                                                 </div>
@@ -58,7 +93,7 @@ class AddProfessor extends Component{
                                                             <div className="input-group-text"><i
                                                                 className="fa fa-envelope text-info"></i></div>
                                                         </div>
-                                                        <input type="email" className="form-control" id="nombre"
+                                                        <input type="email" className="form-control" id="nombre" onChange={this.onchange}  value={this.state.email}
                                                                name="email" placeholder="ejemplo@gmail.com" required/>
                                                     </div>
 
@@ -73,19 +108,19 @@ class AddProfessor extends Component{
                                                         <div className="input-group-prepend">
                                                             <div className="input-group-text"><i
                                                                 className="fa fa-calendar text-info"></i></div>
-                                                        </div>
-                                                        <input type="calendar" className="form-control" id="nombre"
-                                                               name="calendar" placeholder="dd/mm/yy" required/>
+                                                        </div> 
+                                                        <input type="calendar" className="form-control" id="nombre" onChange={this.onchange}  value={this.state.admissiondate}
+                                                               name="admissiondate" placeholder="dd/mm/yy" required/>
                                                     </div>
                                                     <input type="hidden" id="dtp_input2" value=""/>
                                                 </div>
                                             </div>
                                             <div className="form-group row">
-                                                <label className="control-label col-md-3">Password
+                                                <label className="control-label col-md-3">Password  
                                                     <span className="required"> * </span>
                                                 </label>
                                                 <div className="col-md-8">
-                                                    <input type="password" name="pswd" data-required="1"
+                                                    <input type="password" name="password" data-required="1"  onChange={this.onchange}  value={this.state.password}
                                                            placeholder="enter Password"
                                                            className="form-control input-height"/>
                                                 </div>
@@ -95,18 +130,8 @@ class AddProfessor extends Component{
                                                     <span className="required"> * </span>
                                                 </label>
                                                 <div className="col-md-8">
-                                                    <input type="password" name="cnfmPwd" data-required="1"
+                                                    <input type="password" name="cnfmPwd" data-required="1" 
                                                            placeholder="Reenter your password"
-                                                           className="form-control input-height"/>
-                                                </div>
-                                            </div>
-                                            <div className="form-group row">
-                                                <label className="control-label col-md-3">Designation
-                                                    <span className="required"> * </span>
-                                                </label>
-                                                <div className="col-md-8">
-                                                    <input type="text" name="designation" data-required="1"
-                                                           placeholder="enter your designation"
                                                            className="form-control input-height"/>
                                                 </div>
                                             </div>
@@ -115,14 +140,14 @@ class AddProfessor extends Component{
                                                     <span className="required"> * </span>
                                                 </label>
                                                 <div className="col-md-8">
-                                                    <select className="form-control input-height" name="department">
+                                                    <select className="form-control input-height" name="departement" onChange={this.onchange}  value={this.state.departement}>
                                                         <option value="">Select...</option>
-                                                        <option value="Category 1">Computer</option>
-                                                        <option value="Category 2">Mechanical</option>
-                                                        <option value="Category 3">Mathematics</option>
-                                                        <option value="Category 4">Commerce</option>
-                                                        <option value="Category 5">Music</option>
-                                                        <option value="Category 6">Science</option>
+                                                        <option value="Computer ">Computer</option>
+                                                        <option value="Mechanical">Mechanical</option>
+                                                        <option value="Mathematics">Mathematics</option>
+                                                        <option value="Commerce">Commerce</option>
+                                                        <option value="Music">Music</option>
+                                                        <option value="Science">Science</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -131,10 +156,10 @@ class AddProfessor extends Component{
                                                     <span className="required"> * </span>
                                                 </label>
                                                 <div className="col-md-8">
-                                                    <select className="form-control input-height" name="gender">
+                                                    <select className="form-control input-height" name="gender" onChange={this.onchange}  value={this.state.gender}> 
                                                         <option value="">Select...</option>
-                                                        <option value="Category 1">Male</option>
-                                                        <option value="Category 2">Female</option>
+                                                        <option value="male">Male</option>
+                                                        <option value="female">Female</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -143,7 +168,7 @@ class AddProfessor extends Component{
                                                     <span className="required"> * </span>
                                                 </label>
                                                 <div className="col-md-8">
-                                                    <input name="number" type="text" placeholder="mobile number"
+                                                    <input name="mobile" type="text" placeholder="mobile number" onChange={this.onchange}  value={this.state.mobile}
                                                            className="form-control input-height"/></div>
                                             </div>
                                             <div className="form-group row">
@@ -156,8 +181,8 @@ class AddProfessor extends Component{
                                                             <div className="input-group-text"><i
                                                                 className="fa fa-calendar text-info"></i></div>
                                                         </div>
-                                                        <input type="calendar" className="form-control" id="nombre"
-                                                               name="calendar" placeholder="dd/mm/yy" required/>
+                                                        <input type="calendar" className="form-control" id="nombre" onChange={this.onchange}  value={this.state.dateofbirth}
+                                                               name="dateofbirth" placeholder="dd/mm/yy" required/>
                                                     </div>
                                                     <input type="hidden" id="dtp_input5" value=""/>
                                                 </div>
@@ -188,9 +213,9 @@ class AddProfessor extends Component{
                                             </div>
                                             <div className="form-actions">
                                                 <div className="row">
-                                                    <div className="offset-md-3 col-md-9">
-                                                        <button type="submit" className="btn btn-info m-r-20">Submit
-                                                        </button>
+                                                <div className="offset-md-3 col-md-9">
+                                                        <button type="submit" className="btn btn-info m-r-20" onClick={this.onsubmit}>
+                                                       <Link to='/profile/staff'>Submit</Link> </button>
                                                         <button type="button" className="btn btn-default">Cancel
                                                         </button>
                                                     </div>
