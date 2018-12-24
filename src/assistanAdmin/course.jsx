@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
-
-
+import {NavLink} from "react-router-dom";
+import {connect} from 'react-redux'
+import axios from 'axios';
+import CourseItem from './courseitem';
 
 class Course extends Component{
-    constructor(props){
-        super(props)
-        this.state={
+ componentDidMount=()=>{
+       axios.get('/home').then((res)=>this.props.refreshcoursereducer(res.data));
+ }
 
-          courses :[],
-    
-    
-    }
-    
-      
-    }
+ toggleedit = () => {
+    this.setState({
+      modaledit: !this.state.modaledit
+    });
+  }
+ 
     render(){
+        const {courses} =this.props
+    
         return(
         <div className="page-content-wrapper col-lg-9 col-md-9 col-sm-9 m-3">
 
@@ -30,7 +33,7 @@ class Course extends Component{
 											<table className="table display product-overview mb-30" id="support_table">
 												<thead>
 													<tr>
-														<th>No</th>
+											
 														<th>Name</th>
 														<th>Date</th>
 														<th>Duration</th>
@@ -42,18 +45,9 @@ class Course extends Component{
 												</thead>
 												<tbody>
 													
-                                                    {this.state.courses.map((el,index)=>
-                                                        <tr>
-                                                    <td>{index}</td>
-                                                    <td>{el.nom}</td>
-                                                    <td>{el.date}</td>
-                                                    <td>{el.duration}</td>
-                                                    <td>{el.details}</td>
-                                                    <td>{el.seats}</td>
-                                                    <td>{el.value}</td>
-                                                    <td><a href="javascript:void(0)" className="" data-toggle="tooltip" title="Edit"><i className="fa fa-check"></i></a>
-															<a href="javascript:void(0)" className="text-inverse" title="Delete" data-toggle="tooltip"><i className="fa fa-trash"></i></a></td>
-                                                    </tr>
+                                                    {
+                                                       courses.map((el,index)=>
+                                                      <CourseItem key = {index} item={el} />
                                                      )}
 													
 													
@@ -73,4 +67,21 @@ class Course extends Component{
     }
 
 }
-export default Course;
+
+const mapStateToProps=(state)=>
+{
+    return {
+        courses:state.courseReducer
+    }
+}
+const mapDispatchToProps=(dispatch)=>{
+    return{
+        refreshcoursereducer:courses=>{
+            dispatch({
+                type:'REFRESH_COURSE',
+                courses
+            })
+        }
+    }
+}
+export default connect (mapStateToProps,mapDispatchToProps) (Course);

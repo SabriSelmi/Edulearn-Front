@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {NavLink} from "react-router-dom"
 
 
 class Footer extends Component {
@@ -97,12 +98,12 @@ class Footer extends Component {
                 <div className="col-lg-3 col-md-12">
                     <h3 className="footer-title">FLICKR FEED</h3>
                     <ul className="flickr-feed">
-                        <li><a href="#"><img src="images/flickr/1.jpg" alt="Project Image"/></a></li>
-                        <li><a href="#"><img src="images/flickr/2.jpg" alt="Project Image"/></a></li>
-                        <li><a href="#"><img src="images/flickr/3.jpg" alt="Project Image"/></a></li>
-                        <li><a href="#"><img src="images/flickr/4.jpg" alt="Project Image"/></a></li>
-                        <li><a href="#"><img src="images/flickr/5.jpg" alt="Project Image"/></a></li>
-                        <li><a href="#"><img src="images/flickr/6.jpg" alt="Project Image"/></a></li>
+                        <li><NavLink to="#"><img src="images/flickr/1.jpg" alt=""/></NavLink></li>
+                        <li><NavLink to="#"><img src="images/flickr/2.jpg" alt=""/></NavLink></li>
+                        <li><NavLink to="#"><img src="images/flickr/3.jpg" alt=""/></NavLink></li>
+                        <li><NavLink to="#"><img src="images/flickr/4.jpg" alt=""/></NavLink></li>
+                        <li><NavLink to="#"><img src="images/flickr/5.jpg" alt=""/></NavLink></li>
+                        <li><NavLink to="#"><img src="images/flickr/6.jpg" alt=""/></NavLink></li>
                     </ul>
                 </div>
             </div>

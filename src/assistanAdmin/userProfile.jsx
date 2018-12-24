@@ -1,6 +1,6 @@
 import React,{Component} from "react";
 import Avatar from "../images/gallery/kids/1.jpg"
-
+import {NavLink} from "react-router-dom";
 
 class UserProfile extends Component{
     render(){
@@ -18,13 +18,13 @@ class UserProfile extends Component{
                         </div>
                         <ul className="list-group list-group-unbordered">
                             <li className="list-group-item">
-                                <b>Followers</b> <a className="pull-right">1,200</a>
+                                <b>Followers</b> <NavLink to="#" className="pull-right">1,200</NavLink>
                             </li>
                             <li className="list-group-item">
-                                <b>Following</b> <a className="pull-right">750</a>
+                                <b>Following</b> <NavLink to="#" className="pull-right">750</NavLink>
                             </li>
                             <li className="list-group-item">
-                                <b>Friends</b> <a className="pull-right">11,172</a>
+                                <b>Friends</b> <NavLink to="#" className="pull-right">11,172</NavLink>
                             </li>
                         </ul>
 

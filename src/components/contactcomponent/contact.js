@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-
+/*import Form from 'react-validation/build/form';
+import Input from 'react-validation/build/input';
+import Validator from './validator';*/
+import {NavLink} from "react-router-dom";
 
 import './contact.css';
 
@@ -75,7 +78,6 @@ class Contact extends Component {
     }
 
   render() {
-	  console.log(this.state.formErrors.fname)
       const {formErrors}=this.state;
     return (<div>
         		<div className="rs-breadcrumbs bg7 breadcrumbs-overlay">
@@ -86,7 +88,7 @@ class Contact extends Component {
 		                    <h1 className="page-title">Contact</h1>
 		                    <ul>
 		                        <li>
-		                            <a className="active" href="index.html">Home</a>
+		                            <NavLink className="active" to="/">Home</NavLink>
 		                        </li>
 		                        <li>Contact</li>
 		                    </ul>
@@ -96,33 +98,33 @@ class Contact extends Component {
 		    </div>
 		</div>
         <div className="row ml-5 mt-3">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3845.574419351124!2d10.609546439392908!3d35.855629850459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd8af5620fdf25%3A0x331e64ed11f24344!2sSahloul%2C+Sousse!5e0!3m2!1sfr!2stn!4v1544644169249"   style={{width:"1200px",height:"400px",frameborder:"10px",border:"10px",marginLeft:"10px"}}></iframe>
+<iframe title="sahloul" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3845.574419351124!2d10.609546439392908!3d35.855629850459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12fd8af5620fdf25%3A0x331e64ed11f24344!2sSahloul%2C+Sousse!5e0!3m2!1sfr!2stn!4v1544644169249"   style={{width:"1200px",height:"400px",frameborder:"10px",border:"10px",marginLeft:"10px"}}></iframe>
         </div>
-		<div class="contact-page-section sec-spacer">
-        	<div class="container">
-        		<div class="row contact-address-section">
-    				<div class="col-md-4 pl-0">
-    					<div class="contact-info contact-address">
-    						<i class="fa fa-map-marker"></i>
+		<div className="contact-page-section sec-spacer">
+        	<div className="container">
+        		<div className="row contact-address-section">
+    				<div className="col-md-4 pl-0">
+    					<div className="contact-info contact-address">
+    						<i className="fa fa-map-marker"></i>
     						<h4>Address</h4>
     						<p>503  Old Buffalo Street</p>
     						<p>Northwest #205, New York-3087</p>
     					</div>
     				</div>
-    				<div class="col-md-4">
-    					<div class="contact-info contact-phone">
-    						<i class="fa fa-phone"></i>
+    				<div className="col-md-4">
+    					<div className="contact-info contact-phone">
+    						<i className="fa fa-phone"></i>
     						<h4>Phone Number</h4>
-    						<a href="tel:+3453-909-6565">+3453-909-6565</a>
-    						<a href="tel:+2390-875-2235">+2390-875-2235</a>
+    						<NavLink to="tel:+3453-909-6565">+3453-909-6565</NavLink>
+    						<NavLink to="tel:+2390-875-2235">+2390-875-2235</NavLink>
     					</div>
     				</div>
-    				<div class="col-md-4 pr-0">
-    					<div class="contact-info contact-email">
-    						<i class="fa fa-envelope"></i>
+    				<div className="col-md-4 pr-0">
+    					<div className="contact-info contact-email">
+    						<i className="fa fa-envelope"></i>
     						<h4>Email Address</h4>
-    						<a href="mailto:infoname@gmail.com"><p>infoname@gmail.com</p></a>
-    						<a href="#"><p>www.yourname.com</p></a>
+    						<NavLink to="mailto:infoname@gmail.com"><p>infoname@gmail.com</p></NavLink>
+    						<NavLink to="#"><p>www.yourname.com</p></NavLink>
         				</div>
         			</div>
         		</div>

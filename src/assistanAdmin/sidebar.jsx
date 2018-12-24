@@ -11,9 +11,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import PrimarySearchAppBar from "./topBar";
-import {NavLink} from "react-router-dom";
-import Typography from "@material-ui/core/Typography/Typography";
-import IconButton from '@material-ui/core/IconButton';
 
 const styles = {
     list: {

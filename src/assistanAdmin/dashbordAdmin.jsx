@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import {NavLink} from "react-router-dom";
 
 
 class Dashboard extends Component{
@@ -12,17 +12,17 @@ class Dashboard extends Component{
 
                 <div className="state-overview">
                 <div className="row container">
-                <div class="col-xl-4 col-md-6 col-12">
-								<div class="info-box bg-b-green">
-                                <span class="info-box-icon push-bottom"><i class="fa fa-users"></i></span>
-									<div class="info-box-content">
-										<span class="info-box-text">Total Students</span>
-										<span class="info-box-number">450</span>
-										<div class="progress">
+                <div className="col-xl-4 col-md-6 col-12">
+								<div className="info-box bg-b-green">
+                                <span className="info-box-icon push-bottom"><i className="fa fa-users"></i></span>
+									<div className="info-box-content">
+										<span className="info-box-text">Total Students</span>
+										<span className="info-box-number">450</span>
+										<div className="progress">
                                      
-											<div class="progress-bar" style={{width: "45%"}}></div>
+											<div className="progress-bar" style={{width: "45%"}}></div>
 										</div>
-										<span class="progress-description">
+										<span className="progress-description">
 											45% Increase in 28 Days
 										</span>
 									</div>
@@ -30,49 +30,49 @@ class Dashboard extends Component{
 							</div>
 
 
-                            <div class="col-xl-4 col-md-6 col-12">
-								<div class="info-box bg-b-yellow">
-                                <span class="info-box-icon push-bottom"><i class="fa fa-users"></i></span>
-									<div class="info-box-content">
-										<span class="info-box-text">Total Students</span>
-										<span class="info-box-number">450</span>
-										<div class="progress">
+                            <div className="col-xl-4 col-md-6 col-12">
+								<div className="info-box bg-b-yellow">
+                                <span className="info-box-icon push-bottom"><i className="fa fa-users"></i></span>
+									<div className="info-box-content">
+										<span className="info-box-text">Total Students</span>
+										<span className="info-box-number">450</span>
+										<div className="progress">
                                      
-											<div class="progress-bar" style={{width: "45%"}}></div>
+											<div className="progress-bar" style={{width: "45%"}}></div>
 										</div>
-										<span class="progress-description">
+										<span className="progress-description">
 											45% Increase in 28 Days
 										</span>
 									</div>
 								</div>
 							</div>
-                            <div class="col-xl-4 col-md-6 col-12">
-								<div class="info-box bg-b-blue">
-                                <span class="info-box-icon push-bottom"><i class="fa fa-graduation-cap"></i></span>
-									<div class="info-box-content">
-										<span class="info-box-text">Total Students</span>
-										<span class="info-box-number">450</span>
-										<div class="progress">
+                            <div className="col-xl-4 col-md-6 col-12">
+								<div className="info-box bg-b-blue">
+                                <span className="info-box-icon push-bottom"><i className="fa fa-graduation-cap"></i></span>
+									<div className="info-box-content">
+										<span className="info-box-text">Total Students</span>
+										<span className="info-box-number">450</span>
+										<div className="progress">
                                      
-											<div class="progress-bar" style={{width: "45%"}}></div>
+											<div className="progress-bar" style={{width: "45%"}}></div>
 										</div>
-										<span class="progress-description">
+										<span className="progress-description">
 											45% Increase in 28 Days
 										</span>
 									</div>
 								</div>
 							</div>
-                            <div class="col-xl-4 col-md-6 col-12">
-								<div class="info-box bg-b-pink">
-                                <span class="info-box-icon push-bottom"><i class="fa fa-dollar"></i></span>
-									<div class="info-box-content">
-										<span class="info-box-text">Total Students</span>
-										<span class="info-box-number">450</span>
-										<div class="progress">
+                            <div className="col-xl-4 col-md-6 col-12">
+								<div className="info-box bg-b-pink">
+                                <span className="info-box-icon push-bottom"><i className="fa fa-dollar"></i></span>
+									<div className="info-box-content">
+										<span className="info-box-text">Total Students</span>
+										<span className="info-box-number">450</span>
+										<div className="progress">
                                      
-											<div class="progress-bar" style={{width: "45%"}}></div>
+											<div className="progress-bar" style={{width: "45%"}}></div>
 										</div>
-										<span class="progress-description">
+										<span className="progress-description">
 											45% Increase in 28 Days
 										</span>
 									</div>
@@ -82,40 +82,40 @@ class Dashboard extends Component{
                             </div>
 
 
-                            <div class="row mt-5">
-						<div class="col-lg-4 col-md-6 col-12 col-sm-6 mb-5">
-							<div class="blogThumb mb-5">
-								<div class="thumb-center"><img class="img-responsive" alt="user" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXq06eXZsa5TZ_EqIn6OXg6wxbth7HQTppuJiZQOBKp_xWqk8b"/></div>
-								<div class="course-box">
+                            <div className="row mt-5">
+						<div className="col-lg-4 col-md-6 col-12 col-sm-6 mb-5">
+							<div className="blogThumb mb-5">
+								<div className="thumb-center"><img className="img-responsive" alt="user" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXq06eXZsa5TZ_EqIn6OXg6wxbth7HQTppuJiZQOBKp_xWqk8b"/></div>
+								<div className="course-box">
 									<h4>PHP Development Course</h4>
-									<div class="text-muted"><span class="m-r-10">April 23</span>
-										<a class="course-likes m-l-10" href="#"><i class="fa fa-heart-o"></i> 654</a>
+									<div className="text-muted"><span className="m-r-10">April 23</span>
+										<NavLink className="course-likes m-l-10" to="#"><i className="fa fa-heart-o"></i> 654</NavLink>
 									</div>
-									<p><span><i class="ti-alarm-clock"></i> Duration: 6 Months</span></p>
-									<p><span><i class="ti-user"></i> Professor: Jane Doe</span></p>
-									<p><span><i class="fa fa-graduation-cap"></i> Students: 200+</span></p>
-									<button type="button" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-info" data-upgraded=",MaterialButton,MaterialRipple">Read
-										More<span class="mdl-button__ripple-container"><span class="mdl-ripple"></span></span></button>
+									<p><span><i className="ti-alarm-clock"></i> Duration: 6 Months</span></p>
+									<p><span><i className="ti-user"></i> Professor: Jane Doe</span></p>
+									<p><span><i className="fa fa-graduation-cap"></i> Students: 200+</span></p>
+									<button type="button" className="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect m-b-10 btn-info" data-upgraded=",MaterialButton,MaterialRipple">Read
+										More<span className="mdl-button__ripple-container"><span className="mdl-ripple"></span></span></button>
 								</div>
 							</div>
 						</div>
              
                             </div>
-                            <div class="row mb-5">
-						<div class="col-md-12 col-sm-10 mb-5">
-							<div class="card  card-box">
-								<div class="card-head">
+                            <div className="row mb-5">
+						<div className="col-md-12 col-sm-10 mb-5">
+							<div className="card  card-box">
+								<div className="card-head">
 									<header>New Student List</header>
-									<div class="tools">
-										<a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
-										<a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>
-										<a class="t-close btn-color fa fa-times" href="javascript:;"></a>
+									<div className="tools">
+										<NavLink className="fa fa-repeat btn-color box-refresh" to="#"></NavLink>
+										<NavLink className="t-collapse btn-color fa fa-chevron-down" to="#"></NavLink>
+										<NavLink className="t-close btn-color fa fa-times" to="#"></NavLink>
 									</div>
 								</div>
-								<div class="card-body ">
-									<div class="table-wrap">
-										<div class="table-responsive">
-											<table class="table display product-overview mb-30" id="support_table">
+								<div className="card-body ">
+									<div className="table-wrap">
+										<div className="table-responsive">
+											<table className="table display product-overview mb-30" id="support_table">
 												<thead>
 													<tr>
 														<th>No</th>
@@ -134,11 +134,11 @@ class Dashboard extends Component{
 														<td>Kenny Josh</td>
 														<td>27/05/2016</td>
 														<td>
-															<span class="label label-sm label-success">paid</span>
+															<span className="label label-sm label-success">paid</span>
 														</td>
 														<td>Mechanical</td>
-														<td><a href="javascript:void(0)" class="" data-toggle="tooltip" title="Edit"><i class="fa fa-check"></i></a>
-															<a href="javascript:void(0)" class="text-inverse" title="Delete" data-toggle="tooltip"><i class="fa fa-trash"></i></a></td>
+														<td><NavLink  to="#" className="" data-toggle="tooltip" title="Edit"><i className="fa fa-check"></i></NavLink>
+															<NavLink to="#" className="text-inverse" title="Delete" data-toggle="tooltip"><i className="fa fa-trash"></i></NavLink></td>
 													</tr>
 													
 												</tbody>

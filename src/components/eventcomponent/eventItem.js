@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { MDBPopover, MDBPopoverBody, MDBPopoverHeader, MDBContainer } from "mdbreact";
-
+import React from 'react';
+import { MDBPopover, MDBPopoverBody, MDBPopoverHeader} from "mdbreact";
+import {NavLink} from "react-router-dom";
 
 
   
@@ -17,9 +17,9 @@ import { MDBPopover, MDBPopoverBody, MDBPopoverHeader, MDBContainer } from "mdbr
 	                        	<div className="col-md-6">
 	                        	    <div className="event-img">
 								
-	                        <img src={props.event.image} alt=''/>
-                                        <a className="image-link"title="University Tour 2018">
-										<i class="fa fa-heart-o" aria-hidden="true"></i></a>
+	                        <img src='images/events/4.jpg' alt=''/>
+                                        <NavLink to="#" className="image-link"title="University Tour 2018">
+										<i className="fa fa-heart-o" aria-hidden="true" onClick={props.onclick}></i></NavLink>
                                  
 	                        	    </div>                        		
 	                        	</div>
@@ -37,11 +37,11 @@ import { MDBPopover, MDBPopoverBody, MDBPopoverHeader, MDBContainer } from "mdbr
 	                    	        	</div>
 										
 
-	                    	        	<h3 className="event-title"><a href="events-details.html">{props.event.name} <br/>ceremony 2017</a></h3>
+	                    	        	<h3 className="event-title"><NavLink to="#" href="events-details.html">{props.event.title} <br/>ceremony 2017</NavLink></h3>
 
                     	        		<div className="event-location">
                     	        			<i className="fa fa-map-marker"></i>
-                    	        			<span>{props.event.location}</span>
+                    	        			<span>{props.event.place}</span>
                     	        		</div>
 	                    	        	<div className="event-desc">
 	                    	        		<p>
@@ -49,12 +49,12 @@ import { MDBPopover, MDBPopoverBody, MDBPopoverHeader, MDBContainer } from "mdbr
 	                    	        		</p>
 	                    	        	</div>
 	                    	        	<div className="event-btn">
-										<p className="d-flex">{props.event.like}								
+										<p className="d-flex">{props.event.like}
 										<MDBPopover
             component="p"
             placement="right"
-            popoverBody="personnes qui aiment ce evenement."
-			className="light-blue-text ml-2"
+            popoverBody=" personnes qui aiment ce evenement."
+			className="light-blue-text"
           >
             <MDBPopoverHeader>Liste des utilisateurs</MDBPopoverHeader>
             <MDBPopoverBody>
@@ -79,23 +79,23 @@ import { MDBPopover, MDBPopoverBody, MDBPopoverHeader, MDBContainer } from "mdbr
 						<div className="row rs-vertical-middle col">
 							<div className="col-md">
 						<div className="event-img">
-					 <img  class="img-thumbnail rounded event-img" key={i}  src={el.src} style={{width:"120px",height:"120px", margin:"5px"}}
-					 /> 
-                                        <a className="image-link" title={props.event.name}>
+					 <img id="img" className="img-thumbnail rounded event-img" src={el.src} key={i} style={{width:"120px",height:"120px", margin:"5px"}}
+					 alt=""/>
+                                        <NavLink to="#" className="image-link" title="University Tour 2018">
                                             <i className="fa fa-search" data-toggle="modal" data-target="#myModal"></i>
-                                        </a>
+                                        </NavLink>
 	                        	    </div>   
 									</div>
 					</div>
 										{/*modal */}
+										<div className="modal" id="myModal">
+  <div className="modal-dialog">
+    <div className="modal-content">
 
-	 
-	 										<div class="modal" id="myModal">
-											 <div class="modal-dialog" >
-											 <div class="modal-content">	
-											 {props.event.images.map((el,i)=>
-      <div class="modal-body">
-	  <img className="img-fluid thumbnail w-100" key={i} src={el.src}/>
+
+	 {props.image.map((el,i)=>	  
+      <div className="modal-body">
+	  <img className="img-fluid thumbnail w-100" src={el.src}  key={i} alt=''/>
       </div>
 
 	 )}
