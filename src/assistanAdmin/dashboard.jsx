@@ -10,6 +10,7 @@ import {Route} from "react-router-dom";
 import axios from "axios";
 
 import EditCourse from './courseedit';
+import AddEvent from './addEvent';
 import Course from "./course";
 import Event from "./event";
 import Staff from "./staff";
@@ -52,7 +53,7 @@ class Navigation extends React.Component
         return (
             <div style={{marginTop: "2%"}}>
                 {/*<MiniDrawer />*/}
-                {/* <PrimarySearchAppBar Click={this.props.Click} user={this.props.user} aspire1={(x) => this.props.aspire1(x)}/> */}
+                <PrimarySearchAppBar Click={this.props.Click} user={this.props.user} aspire1={(x) => this.props.aspire1(x)}/> 
                 <div className="row">
                     <Sidebarmenu/>
                     <Route exact path="/profile" component={Dashbord}/>
@@ -62,6 +63,7 @@ class Navigation extends React.Component
                     <Route path="/profile/course" component={Course}/>
                     <Route path="/profile/userProfile" render={() => < UserProfile/>}/>
                     <Route path="/profile/addProfessor" render={() => < AddProfessor/>}/>
+                    <Route  path="/profile/addEvent" render={() => < AddEvent/>}/>
                     <Route path="/profile/addStudent" component={AddStudent}/>
                     <Route path="/profile/calendar" render={() => <TimelineResource roomData={this.state.roomData}/>}/>
                     <Route exact  path="/profile/editStudent/:id" render ={(props)=> < EditStudent id={props.match.params.id}/>}/>

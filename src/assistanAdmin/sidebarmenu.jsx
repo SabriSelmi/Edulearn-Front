@@ -13,6 +13,7 @@ class Sidebarmenu extends Component{
 
                 <h3><NavLink to="/profile/addProfessor" style={{color:"white",fontSize:"1.7vw",paddingLeft:"15%"}}>Add Professor</NavLink></h3>
                 <h3><NavLink to="/profile/addStudent" style={{color:"white",fontSize:"1.7vw",paddingLeft:"15%"}}>Add Student</NavLink></h3>
+                <h3><NavLink to="/profile/addEvent" style={{color:"white",fontSize:"1.7vw",paddingLeft:"15%"}}>Add Event</NavLink></h3>
                 <h3><NavLink to="/profile/calendar" style={{color:"white",fontSize:"1.7vw",paddingLeft:"15%"}}>Calendar</NavLink></h3>
 
             </div>

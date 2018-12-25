@@ -15,7 +15,7 @@ export default class Loginpage extends Component{
             user:{},
             users:[
                 {
-                    FirstName:"",
+                    name:"",
                     email:"",
                     password:"",
                     role:""
@@ -65,25 +65,25 @@ export default class Loginpage extends Component{
     }
     render(){
 
-    //    if (this.props.stateApp.role===0 && this.props.stateApp.isIdent) {
-        if(true){
-           return (<Dashboard Click={this.fakeDisconnect} user={this.state.user.FirstName} aspire1={(x)=>this.props.aspire1(x)}/>);
+       if (this.props.stateApp.role===0 && this.props.stateApp.isIdent) {
+        
+           return (<Dashboard Click={this.fakeDisconnect} user={this.state.user.name} aspire1={(x)=>this.props.aspire1(x)}/>);
         }
        else
        if (this.props.stateApp.role===1 && this.props.stateApp.isIdent) {
-           return (<div style={{marginTop:"20%"}}><h1>assistant admin: Welcome {this.state.user.FirstName}</h1><NavLink to="/profile/login" ><button onClick={this.fakeDisconnect}>logout</button></NavLink></div>);
+           return (<div style={{marginTop:"20%"}}><h1>assistant admin: Welcome {this.state.user.name}</h1><NavLink to="/profile/login" ><button onClick={this.fakeDisconnect}>logout</button></NavLink></div>);
        }
         else
        if (this.props.stateApp.role===2 && this.props.stateApp.isIdent) {
-           return (<div style={{marginTop:"20%"}}><h1>professor: Welcome {this.state.user.FirstName}</h1><NavLink to="/profile/login" ><button onClick={this.fakeDisconnect}>logout</button></NavLink></div>);
+           return (<div style={{marginTop:"20%"}}><h1>professor: Welcome {this.state.user.name}</h1><NavLink to="/profile/login" ><button onClick={this.fakeDisconnect}>logout</button></NavLink></div>);
        }
         else
        if (this.props.stateApp.role===3 && this.props.stateApp.isIdent) {
-           return (<div style={{marginTop:"20%"}}><h1>Parent: Welcome {this.state.user.FirstName}</h1><NavLink to="/profile/login" ><button onClick={this.fakeDisconnect}>logout</button></NavLink></div>);
+           return (<div style={{marginTop:"20%"}}><h1>Parent: Welcome {this.state.user.name}</h1><NavLink to="/profile/login" ><button onClick={this.fakeDisconnect}>logout</button></NavLink></div>);
        }
         else
        if (this.props.stateApp.role===4 && this.props.stateApp.isIdent) {
-           return (<div style={{marginTop:"20%"}}><h1>Student: Welcome {this.state.user.FirstName}</h1><NavLink to="/profile/login" ><button onClick={this.fakeDisconnect}>logout</button></NavLink></div>);
+           return (<div style={{marginTop:"20%"}}><h1>Student: Welcome {this.state.user.name}</h1><NavLink to="/profile/login" ><button onClick={this.fakeDisconnect}>logout</button></NavLink></div>);
        }
        else return (
                 <div className="container login-container" style={{marginBottom:"10%"}}>

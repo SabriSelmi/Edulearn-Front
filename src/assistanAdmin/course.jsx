@@ -3,6 +3,9 @@ import {NavLink} from "react-router-dom";
 import {connect} from 'react-redux'
 import axios from 'axios';
 import CourseItem from './courseitem';
+import { CSVLink, CSVDownload } from "react-csv";
+
+
 
 class Course extends Component{
  componentDidMount=()=>{
@@ -15,11 +18,21 @@ class Course extends Component{
     });
   }
  
+
     render(){
+        let array=[]
         const {courses} =this.props
-    
+    console.log(courses)
+    for (var key in courses) {    
+        var obj = courses[key];
+        for (var prop in obj) {
+            array.push((prop + " = " + obj[prop] +"\n").replace(/\/","/g, '/'));
+        }
+        console.log(array)
+    }
         return(
         <div className="page-content-wrapper col-lg-9 col-md-9 col-sm-9 m-3">
+<CSVLink data={[array]}>Download me</CSVLink>
 
             <div className="row mb-5 mt-5">
 						<div className="col-md-12 col-sm-10 mb-5">

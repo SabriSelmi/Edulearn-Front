@@ -6,9 +6,21 @@ class EditProf extends Component{
 constructor(props){
     super(props)
     this.state={
+         
+              
+        name:"",
+        lastname:"",
+        mobile:"",
+        email:"",
+        departement:"",
+        admissiondate:"",
+        password:"",
+        class:"",
+        dateofbirth:"",
+        adresse:"",
         
-    }
 
+}
 
 
 }
@@ -27,7 +39,7 @@ componentDidMount() {
 
 onsubmit = () =>{
     axios.put('/user/'+this.props.id,{
-        id:this.props.id,
+        
         name:this.state.name,
         lastname:this.state.lastname,
         email:this.state.email,

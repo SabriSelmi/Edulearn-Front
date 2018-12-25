@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Route, Link,Redirect } from "react-router-dom"
 import axios from 'axios';
 import "./theme_style.css";
 import "./theme-color.css";
-import "./style.css"
+import "./style.css";
+import CSVReader from 'react-csv-reader';
 
 
 class AddProfessor extends Component{
@@ -29,6 +30,20 @@ class AddProfessor extends Component{
     
     
     }
+
+    handleForce = data => {
+        var  name= data[0].toString();
+         var lastname =  data[1].toString()
+         var mobile =  data[2].toString();
+ data= {
+    name: name,
+    designation:lastname,
+    mobile:lastname
+ }											
+         axios.post('/professor',data)
+         .then(res => console.log(res.data))
+         .catch(err => console.log("err"))
+      };
     onchange=(e)=>{
         this.setState({
             [e.target.name]:e.target.value
@@ -43,6 +58,15 @@ class AddProfessor extends Component{
     render(){
         return(
             <div className="page-content-wrapper col-lg-9 col-md-9 col-sm-9 m-3" >
+
+<CSVReader
+        cssClass="csv-reader-input"
+        label="Select CSV with secret Death Star statistics"
+        onFileLoaded={this.handleForce}
+        onError={this.handleDarkSideForce}
+        inputId="ObiWan"
+        inputStyle={{color: 'red'}}
+      />
                 <div className="page-content">
 
                     <div className="page-bar">
