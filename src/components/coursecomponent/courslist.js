@@ -84,6 +84,7 @@ handleClick = (event) => {
     return (
  <div>
             			<div className="row grid" style={{marginTop:"20px"}}>
+                  
              {currentTodos.map((el,i)=><CourseItem course ={el}  key={i}/>)}
 
    </div>

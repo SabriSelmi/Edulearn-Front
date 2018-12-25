@@ -39,6 +39,10 @@ class AddProfessor extends Component{
         axios.post('/professor',{...this.state})
         .then(res => console.log(res.data))
         .catch(err => console.log("err"));
+
+        axios.post('/users',{...this.state})
+        .then(res => console.log(res.data))
+        .catch(err => console.log("err"));
     }
     render(){
         return(

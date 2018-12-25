@@ -6,7 +6,7 @@ import CourseItem from './courseitem';
 
 class Course extends Component{
  componentDidMount=()=>{
-       axios.get('/home').then((res)=>this.props.refreshcoursereducer(res.data));
+       axios.get('/course').then((res)=>this.props.refreshcoursereducer(res.data));
  }
 
  toggleedit = () => {

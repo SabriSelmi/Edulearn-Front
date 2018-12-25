@@ -8,7 +8,7 @@ console.log(props)
 		                <div className="course-item">
 		                    <div className="course-img">
 		                        <img src="images/courses/1.jpg" alt="" />
-		                        <span className="course-value">{props.course.value}</span>
+		                        <span className="course-value">${props.course.priceCourse}</span>
 		                        <div className="course-toolbar">
 		                    		<h4 className="course-category"><NavLink to="#">{props.course.nom}</NavLink></h4>
 		                        	<div className="course-date">

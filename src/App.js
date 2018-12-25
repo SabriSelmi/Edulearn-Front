@@ -5,8 +5,8 @@ import BlogDetails from "./components/BlogDetails";
 import Header from "./components/Header";
 //import Home from "./components/HomeAuth";
 import Home from "./components/Home"
-// import Profile from "./components/Profile";
-import Profile from "./components/profile";
+import Profile from "./components/Profile";
+//import Profile from "./components/profile";
 import { Security, ImplicitCallback, SecureRoute } from '@okta/okta-react';
 import Login from "./authent/login";
 // hello world
@@ -77,7 +77,7 @@ aspire1=(x)=>{
                 <Route path ="/contact" render={()=><Contact/>}/>
                 <Route path="/course" render={()=><Course/>}/>
                 <Route path="/event" render={()=><Event/>}/>
-                <Route   path="/profile" render ={()=><Profile />}/>
+                <Route   path="/profile" render ={()=><Profile aspire={(x,y)=>this.aspire(x,y)} stateApp={this.state} aspire1={(x)=>this.aspire1(x)}/>}/>
                 {/*<Route exact path="/login" render={()=><Login  baseUrl="https://dev-387251.oktapreview.com"/>}/>
                 <Route path="/implicit/callback" component={ImplicitCallback}/>*/}
                 <ScrollUp/>

@@ -11,13 +11,14 @@ import Canvas from "../componentsHeader/canvasMenu"
 
 
 class Header extends Component {
-    render() {
+   
+    render() { 
         return (
 
               <header id="rs-header" className="rs-header" >
               <Toolbar/>
               <HeaderTopStart/>
-              <Navbar />
+              <Navbar isIdent={this.props.isIdent}/>
               <Canvas/>
               </header>
 

@@ -24,11 +24,11 @@ class CoursesHome extends Component{
             ]
         }
     }
-    // componentDidMount(){
-    //     axios.get("/home").then(res=>this.setState({
-    //         tabCourses:res.data
-    //     }))
-    // }
+     componentDidMount(){
+         axios.get("/home").then(res=>this.setState({
+            tabCourses:res.data
+        }))
+    }
     render(){
 
         return(

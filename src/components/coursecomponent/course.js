@@ -14,7 +14,7 @@ import {
 
  
 const menuItems = [
-	'All',
+	"",
 	'SCIENCE',
 	'BUSINESS',
 	'HUMANITIES',
@@ -24,7 +24,7 @@ class Course extends Component {
 	constructor() {
 		super();
 		this.state = {
-			active: 'All',
+			active: '',
 		};
 	}	
 
@@ -69,8 +69,17 @@ class Course extends Component {
 				    <h2>OUR COURSES</h2>
 				</div>
                 <div className="gridFilter">
-				{menuItems.map(menuItem => 
 				<button id="button" >
+				<Link
+			 style={this.state.active === "" ? activeStyle : Style} 
+             onClick={this._handleClick.bind(this, "")}
+            to={`/course`}> 
+             ALL			 
+            </Link>
+			</button>
+				{menuItems.map(menuItem => 
+				<button id="button" className="" >
+			
             <Link
 			 style={this.state.active === menuItem ? activeStyle : Style} 
              onClick={this._handleClick.bind(this, menuItem)}
@@ -79,9 +88,9 @@ class Course extends Component {
             </Link>
 			</button>
 		 )}
-
-			<Route  exact path="/course" component={Coursefilter} />
-			<Route exact path="/course/All" component={Coursefilter} />
+<Route  exact path="/course" component={Coursefilter} />
+			<Route  exact path="/course/ALL" component={Coursefilter} />
+			
 			<Route exact path="/course/SCIENCE" render={() => (
   ((this.props.isAdmin===false))? (
     <Redirect to="/"/>
