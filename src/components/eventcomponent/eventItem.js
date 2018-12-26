@@ -73,8 +73,8 @@ import {NavLink} from "react-router-dom";
                     	</div>
                     </div>
 				
-					<div className="col-lg-6 col-md-12 d-flex flex-wrap">
-					 {props.event.images.map((el,i)=>	   
+				<div className="col-lg-6 col-md-12 d-flex flex-wrap">
+					 {props.event.image.map((el,i)=>	   
 						<div className="event-item">
 						<div className="row rs-vertical-middle col">
 							<div className="col-md">
@@ -87,7 +87,7 @@ import {NavLink} from "react-router-dom";
 	                        	    </div>   
 									</div>
 					</div>
-										{/*modal */}
+										
 										<div className="modal" id="myModal">
   <div className="modal-dialog">
     <div className="modal-content">

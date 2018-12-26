@@ -11,7 +11,8 @@ import Canvas from "../componentsHeader/canvasMenu"
 
 
 class Header extends Component {
-    render() {
+   
+    render() { 
         return (
 
               <header id="rs-header" className="rs-header" >

@@ -46,6 +46,7 @@ class Navbar extends Component{
         window.removeEventListener("scroll", this.handleScroll);
     }
     render(){
+        
         const activeStyle = {
             fontSize: "15px",
             fontWeight: "700",

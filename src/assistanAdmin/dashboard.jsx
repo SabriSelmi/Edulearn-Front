@@ -53,7 +53,7 @@ class Navigation extends React.Component
         return (
             <div style={{marginTop: "2%"}}>
                 {/*<MiniDrawer />*/}
-                <PrimarySearchAppBar Click={this.props.Click} user={this.props.user} aspire1={(x) => this.props.aspire1(x)}/> 
+                <PrimarySearchAppBar Click={this.props.Click} user={this.props.user} aspire1={(x) => this.props.aspire1(x)}/>
                 <div className="row">
                     <Sidebarmenu/>
                     <Route exact path="/profile" component={Dashbord}/>

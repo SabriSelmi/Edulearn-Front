@@ -64,6 +64,8 @@ class Eventitem extends React.PureComponent {
 														<td>
 														<a><img  src={trach} style={{height:"15px"}} alt="delete" onClick={this.toggledelete}  /></a>
                                                   <Link Redirect exact  to={`/profile/editEvent/${this.props.student._id}`}  ><img  src={edit} style={{height:"15px",marginLeft:"-35px"}} alt="edit" onClick={this.onclickgetstudent}  onClick={this.toggleedit}    /></Link>  </td>
+       
+  
        <Modal isOpen={this.state.modaldelete} toggledelete={this.toggledelete} size="sm" frame position="top" style={{marginTop:"250pxa"}}>
          <ModalBody>
          Are you sure you want to delete this user event {this.props.student.name} ? 

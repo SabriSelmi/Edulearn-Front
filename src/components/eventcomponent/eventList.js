@@ -15,9 +15,25 @@ class Eventlist extends Component {
       date:'',
             time:'',
             place:'',
-            image:"",
+           
+            image:[{
+              src: '',
+             
+            },
+            {
+              src: '',
+            
+            },
+            {
+              src: '',
+            
+                 
+            
+            }
+            ],
       history:'',
-      like:57
+      like:"",
+      userlike:[{nom:""},{nom:"firas"}]
   }
 ],
 image:[{
@@ -40,13 +56,13 @@ image:[{
 
 
 
-    componentDidMount(){
-        axios.get("/events").then(res=>this.setState({
-            tabEvent:res.data
-        }))
-    }
+  componentDidMount(){
+    axios.get("/events").then(res=>this.setState({
+        tabEvent:res.data
+    }))
+}
   render() {
-console.log("event list",this.state)
+console.log("event list",this.state.tabEvent)
     return (
       <div>
           <div className="rs-events-2 sec-spacer">

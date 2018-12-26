@@ -78,12 +78,24 @@ onsubmit = (e) =>{
                                                 </div>
                                             </div>
                                             <div className="form-group row">
-                                                <label className="control-label col-md-3">Roll No
+                                                <label className="control-label col-md-3">Password  
                                                     <span className="required"> * </span>
                                                 </label>
                                                 <div className="col-md-8">
-                                                    <input type="text" name="rollNo" placeholder="enter roll no"
-                                                           className="form-control input-height"/></div>
+                                                    <input type="password" name="password" data-required="1"  onChange={this.onchange}  value={this.state.password}
+                                                           placeholder="enter Password"
+                                                           className="form-control input-height"/>
+                                                </div>
+                                            </div>
+                                            <div className="form-group row">
+                                                <label className="control-label col-md-3">Confirm Password
+                                                    <span className="required"> * </span>
+                                                </label>
+                                                <div className="col-md-8">
+                                                    <input type="password" name="cnfmPwd" data-required="1" 
+                                                           placeholder="Reenter your password"
+                                                           className="form-control input-height"/>
+                                                </div>
                                             </div>
                                             <div className="form-group row">
                                                 <label className="control-label col-md-3">Email

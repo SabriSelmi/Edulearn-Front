@@ -1,33 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f15e65fb-ce62-4995-8b41-89d3b5c6bcbd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assistanAdmin/course.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/assistanAdmin/course.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assistanAdmin/dashboard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/assistanAdmin/dashboard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assistanAdmin/dashbordAdmin.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/assistanAdmin/dashbordAdmin.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assistanAdmin/event.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/assistanAdmin/event.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assistanAdmin/sidebar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/assistanAdmin/sidebar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assistanAdmin/sidebarmenu.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/assistanAdmin/sidebarmenu.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assistanAdmin/staff.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/assistanAdmin/staff.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assistanAdmin/students.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/assistanAdmin/students.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assistanAdmin/topBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/assistanAdmin/topBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assistanAdmin/userProfile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/assistanAdmin/userProfile.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/componentProfile/login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/componentProfile/login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/contact.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/contact.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/coursecomponent/business.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/coursecomponent/business.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/coursecomponent/courseitem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/coursecomponent/courseitem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/coursecomponent/courslist.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/coursecomponent/courslist.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/eventcomponent/eventItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/eventcomponent/eventItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/eventcomponent/eventList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/eventcomponent/eventList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/componentsHeader/navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/componentsHeader/navbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/css/style.css" afterDir="false" />
-    </list>
+    <list default="true" id="f15e65fb-ce62-4995-8b41-89d3b5c6bcbd" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +12,7 @@
     <session id="-1987873733">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="20" />
+          <entry key="project.closed" value="21" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.14" value="1" />
@@ -482,12 +456,12 @@
       <workItem from="1545383704848" duration="14714000" />
       <workItem from="1545509041135" duration="2795000" />
       <workItem from="1545575577030" duration="549000" />
-      <workItem from="1545646816492" duration="7816000" />
+      <workItem from="1545646816492" duration="8792000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="256140000" />
+    <option name="totallyTimeSpent" value="257116000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="776" extended-state="6" />
