@@ -37,6 +37,7 @@ class App extends Component {
         isIdent:'',
         role:'',
         nav:true,
+        user:{}
 
     }}
 aspire=(x,y)=>{
@@ -58,8 +59,9 @@ aspire1=(x)=>{
         })
 }
 
-    render() {
 
+    render() {
+console.log("user app", this.state.user)
         return (
            /* <Security issuer={config.issuer}
                       client_id={config.client_id}
@@ -77,7 +79,7 @@ aspire1=(x)=>{
                 <Route path ="/contact" render={()=><Contact/>}/>
                 <Route path="/course" render={()=><Course/>}/>
                 <Route path="/event" render={()=><Event/>}/>
-                <Route   path="/profile" render ={()=><Profile aspire={(x,y)=>this.aspire(x,y)} stateApp={this.state} aspire1={(x)=>this.aspire1(x)}/>}/>
+                <Route   path="/profile" render ={()=><Profile aspire={(x,y)=>this.aspire(x,y)} stateApp={this.state} aspire1={(x)=>this.aspire1(x)}/>} />}/>
                 {/*<Route exact path="/login" render={()=><Login  baseUrl="https://dev-387251.oktapreview.com"/>}/>
                 <Route path="/implicit/callback" component={ImplicitCallback}/>*/}
                 <ScrollUp/>

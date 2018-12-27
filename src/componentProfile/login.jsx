@@ -2,8 +2,9 @@ import React,{Component} from "react";
 import {NavLink} from "react-router-dom";
 import Dashboard from "../assistanAdmin/dashboard";
 import axios from "axios";
-import Professor from './professoracount'
-
+import Professor from './professoracount';
+import Parent from '../assistanAdmin/componentParent/parent';
+import'./login.css';
 export default class Loginpage extends Component{
     constructor(props){
         super(props)
@@ -80,15 +81,15 @@ export default class Loginpage extends Component{
        }
         else
        if (this.props.stateApp.role===3 && this.props.stateApp.isIdent) {
-           return (<div style={{marginTop:"20%"}}><h1>Parent: Welcome {this.state.user.name}</h1><NavLink to="/profile/login" ><button onClick={this.fakeDisconnect}>logout</button></NavLink></div>);
+           return <Parent Click={this.fakeDisconnect} user={this.state.user}  aspire1={(x)=>this.props.aspire1(x)}  onClick={this.fakeDisconnect}/>;
        }
         else
        if (this.props.stateApp.role===4 && this.props.stateApp.isIdent) {
            return (<div style={{marginTop:"20%"}}><h1>Student: Welcome {this.state.user.name}</h1><NavLink to="/profile/login" ><button onClick={this.fakeDisconnect}>logout</button></NavLink></div>);
        }
        else return (
-                <div className="container login-container" style={{marginBottom:"10%"}}>
-                    <div className="row">
+             
+                    <div className="row firas">
                         <span className="col-md-3"></span>
                         <div className="col-md-6 login-form-1">
                             <h3>Login</h3>
@@ -105,19 +106,11 @@ export default class Loginpage extends Component{
                             <div className="form-group text-center">
                                 <NavLink to="#" className="ForgetPwd">Forget Password?</NavLink>
                             </div>
-
-                            <div className="form-group text-center">
-                                <button className="btnSubmit1" ><NavLink to ="/profile/signup" style={{color:"white"}}>Sign up</NavLink></button>
-                            </div>
-
-                            <div className="form-group text-center">
-                                <NavLink to="/profile/login" className="ForgetPwd text-danger">You don't have an account yet?</NavLink>
-                            </div>
-
                         </div>
                         <span className="col-md-3"></span>
                     </div>
-                </div>
+              
+               
             )
         }
 

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import Eventitem from './eventItem';
-import axios from "axios";
-
+const axios = require('axios');
 
 
 class Eventlist extends Component {
@@ -52,24 +50,26 @@ image:[{
 }
 ]
     }
+       
+
+  }
+  componentDidMount =()=>{
+    axios.get('/events').then(res=>
+      this.setState({
+        tabEvent:res.data
+      }))    
+    
   }
 
-
-
-  componentDidMount(){
-    axios.get("/events").then(res=>this.setState({
-        tabEvent:res.data
-    }))
-}
+  
   render() {
-console.log("event list",this.state.tabEvent)
+    
     return (
       <div>
           <div className="rs-events-2 sec-spacer">
             <div className="container">
              {this.state.tabEvent.map((el,i)=><Eventitem event ={el}  key={i}  image = {this.state.image}  onclick={this.onclick}
              />)}
-             
 </div>)
 
 </div>

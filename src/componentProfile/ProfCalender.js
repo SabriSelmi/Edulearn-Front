@@ -1,4 +1,5 @@
 import React,{Component} from "react";
+import TimelineResource from "./calendar/start";
 
 class Professorcalender extends React.Component {
 
@@ -6,7 +7,7 @@ class Professorcalender extends React.Component {
         console.log(this.props)
       return (
         <div>
-   Calender
+  <TimelineResource roomData={this.props.roomData}/>
         </div>
       );
     }

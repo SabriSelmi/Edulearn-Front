@@ -21,7 +21,7 @@ class Event extends Component{
 
     
 deleteStudent = id => {
-    axios.delete('/event/'+id).then((res) =>
+    axios.delete('/events/'+id).then((res) =>
     this.setState({
             ...res.data
         }))

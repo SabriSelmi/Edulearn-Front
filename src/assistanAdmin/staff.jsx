@@ -66,10 +66,11 @@ class Staff extends Component{
 												<thead>
 													<tr>
 														<th>Name</th>
-														<th>Designation</th>
+														<th>Designation class1</th>
+														<th>Designation class2</th>
+														<th>Designation class3</th>
 														<th>Mobile</th>
 														<th>Email</th>
-														<th>Adress</th>
                                                         <th>Joining Date</th>
                                                         <th>Action</th>
 													</tr>

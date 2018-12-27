@@ -8,13 +8,33 @@ constructor(props){
     super(props)
     this.state={
      
-          
-						name:"",
-                        time:"",
-                        date:"",
-                        location:"",
-                        history:"",
-                        like:"",
+        title:"",
+        time:"",
+        date:"",
+        place:"",
+        history:"",
+        like:"",
+        avatar:"",
+        userlike: [
+            {name:"Sabri"},
+            {name:"Firas"}
+        ],
+        image:[
+            {
+                "src" : "https://images.pexels.com/photos/853168/pexels-photo-853168.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+            },
+            {
+                "src" : "https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+            },
+            {
+                "src" : "https://images.pexels.com/photos/305070/pexels-photo-305070.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+            }
+        ]
+
+     
+
+
+
 
 					
                         
@@ -24,6 +44,19 @@ constructor(props){
 
 
 }
+handleForce = data => {
+    var  name= data[0].toString();
+     var lastname =  data[1].toString()
+     var mobile =  data[2].toString();
+data= {
+name: name,
+designation:lastname,
+mobile:lastname
+}											
+     axios.post('/professor',data)
+     .then(res => console.log(res.data))
+     .catch(err => console.log("err"))
+  };
 onchange=(e)=>{
     this.setState({
         [e.target.name]:e.target.value
@@ -31,7 +64,7 @@ onchange=(e)=>{
 }
 onsubmit = (e) =>{
     e.preventDefault();
-    axios.post('/event',{...this.state})
+    axios.post('/events',{...this.state})
     .then(res => console.log(res.data))
     .catch(err => console.log("err"));
 }
@@ -133,7 +166,7 @@ onsubmit = (e) =>{
                                                 <div className="row">
                                                 <div className="offset-md-3 col-md-9">
                                                       
-                                                       <Link to='/profile/event'> <button type="submit" className="btn btn-info m-r-20" onClick={this.onsubmit} >Submit </button></Link> 
+                                                       <button type="submit" className="btn btn-info m-r-20" onClick={this.onsubmit} ><Link to='/profile/event'> Submit </Link> </button>
                                                      
                                                         <button Redirect to='/profile/event' type="button" className="btn btn-default">Cancel
 

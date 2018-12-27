@@ -18,7 +18,7 @@ onchange=(e)=>{
     })
 }
 componentDidMount() {
-    axios.get('/event/'+this.props.id).then(res=>this.setState({
+    axios.get('/events/'+this.props.id).then(res=>this.setState({
         ...res.data
     }))
     
@@ -26,7 +26,7 @@ componentDidMount() {
     }
 
 onsubmit = () =>{
-    axios.put('/event/'+this.props.id,{
+    axios.put('/events/'+this.props.id,{
         name:this.state.name,
         date:this.state.date,
         time:this.state.time,

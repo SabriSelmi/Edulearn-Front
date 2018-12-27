@@ -10,7 +10,7 @@ export default class Profile extends Component{
     render(){
         return(
 
-            <Route  path="/profile/" render={()=><div style={{marginBottom:"10%"}}><Loginpage aspire={(x,y)=>this.props.aspire(x,y)} stateApp={this.props.stateApp} aspire1={(x)=>this.props.aspire1(x)} /></div>}/>
+            <Route  path="/profile" render={()=><div style={{marginBottom:"10%"}}><Loginpage aspire={(x,y)=>this.props.aspire(x,y)} stateApp={this.props.stateApp} aspire1={(x)=>this.props.aspire1(x)}/></div>}/>
 
         )
     }

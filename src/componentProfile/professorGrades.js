@@ -1,5 +1,6 @@
 import React,{Component} from "react";
 import StudentProffItem from './professorstudentsitem';
+
 import axios from 'axios';
 class Professorgrades extends React.Component {
   constructor(props){
@@ -12,14 +13,14 @@ toogleupdate:false
 
 
   componentDidMount(){
-        axios.get(`/user/${this.props.id}/ClassA`).then(res=>
+        axios.get(`/course/ScienceDegreeC`).then(res=>
             this.setState({
               students:res.data
             }))       
-        console.log(this.state.students)
         }
 
     render() {
+      console.log("class1",this.props.class1)
       return (
         <div>
         <div className="page-content-wrapper col-lg-11 col-md-9 col-sm-9 m-3 ml-5">
@@ -38,16 +39,14 @@ toogleupdate:false
                                    
                                                                <th>Name</th>
                                                                <th>Lastname</th>
-                                                               <th>Email</th>
-                                                               <th>Class</th>
                                                                <th>Note</th>
                                  </tr>
                                </thead>
                                <tbody>
-                                                       {
+                                                        {
                                                               this.state.students.map((el,index)=>
                                                              <StudentProffItem key = {index} item={el} />
-                                                            )}
+                                                            )} 
                                  
                                </tbody>
                              </table>

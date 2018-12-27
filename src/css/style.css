@@ -517,7 +517,7 @@ ul {
   background-color: #f9f9f9;
 }
 .drak-color {
-  background-color: #252525;
+  background-color: #222;
 }
 .gray-color {
   background-color: #f0f0f0;
@@ -584,6 +584,10 @@ ul {
 
   background-attachment: fixed;
   background-position: center top;
+}
+.home2 .rs-menu > ul > li {
+  padding-right: 40px;
+  background-color: black;
 }
 /* ------------------------------------
     02. Global Class

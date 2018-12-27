@@ -8,14 +8,14 @@ console.log(props)
 		                <div className="course-item">
 		                    <div className="course-img">
 		                        <img src="images/courses/1.jpg" alt="" />
-		                        <span className="course-value">${props.course.priceCourse}</span>
+		                        <span className="course-value">{props.course.value}</span>
 		                        <div className="course-toolbar">
-		                    		<h4 className="course-category"><NavLink to="#">{props.course.title}</NavLink></h4>
+		                    		<h4 className="course-category"><NavLink to="#">{props.course.nom}</NavLink></h4>
 		                        	<div className="course-date">
-		                        		<i className="fa fa-calendar"></i> {props.course.courseTime}
+		                        		<i className="fa fa-calendar"></i> {props.course.date}
 		                        	</div>
 		                        	<div className="course-duration">
-		                        		<i className="fa fa-clock-o"></i>{props.course.classDuration}
+		                        		<i className="fa fa-clock-o"></i>{props.course.duration}
 		                        	</div>
 		                        </div>
 		                    </div>
@@ -30,7 +30,7 @@ console.log(props)
 		                    </div>
 		                    <div className="course-footer">
 		                    	<div className="course-seats">
-		                    		<i className="fa fa-users"></i> {props.course.courseStudent}
+		                    		<i className="fa fa-users"></i> {props.course.seats}
 		                    	</div>
 		                    	<div className="course-button">
 		                    		<NavLink to="#">APPLY NOW</NavLink>

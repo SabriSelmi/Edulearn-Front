@@ -56,7 +56,7 @@ class Navigation extends React.Component
                 <PrimarySearchAppBar Click={this.props.Click} user={this.props.user} aspire1={(x) => this.props.aspire1(x)}/>
                 <div className="row">
                     <Sidebarmenu/>
-                    <Route exact path="/profile" component={Dashbord}/>
+                    <Route exact path="/profile" component={Students}/>
                     <Route path="/profile/students" component={Students}/>
                     <Route path="/profile/staff" component={Staff}/>
                     <Route path="/profile/event" component={Event}/>

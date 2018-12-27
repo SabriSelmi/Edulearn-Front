@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import {NavLink} from "react-router-dom"
+import {NavLink} from "react-router-dom";
 
 
 class Footer extends Component {
   render() {
-    return (       <footer id="rs-footer" className="bg3 rs-footer mt-5">
+    return (       <footer id="rs-footer" className="bg3 rs-footer mt-5" >
     <div className="container mt-5">
         <div>
             <div className="row footer-contact-desc">
@@ -62,7 +62,7 @@ class Footer extends Component {
                                 <span>June</span>
                             </div>
                             <div className="post-desc">
-                                <h5 className="post-title"><a href="#">While the lovely valley team work</a></h5>
+                                <h5 className="post-title"><NavLink to="#">While the lovely valley team work</NavLink></h5>
                                 <span className="post-category">Keyword Analysis</span>
                             </div>
                         </div>
@@ -72,7 +72,7 @@ class Footer extends Component {
                                 <span>June</span>
                             </div>
                             <div className="post-desc">
-                                <h5 className="post-title"><a href="#">I must explain to you how all this idea</a></h5>
+                                <h5 className="post-title"><NavLink to="#">I must explain to you how all this idea</NavLink></h5>
                                 <span className="post-category">Spoken English</span>
                             </div>
                         </div>
@@ -81,18 +81,17 @@ class Footer extends Component {
                 <div className="col-lg-3 col-md-12">
                     <h5 className="footer-title">OUR SITEMAP</h5>
                     <ul className="sitemap-widget">
-                        <li className="active"><a href="index.html"><i className="fa fa-angle-right" aria-hidden="true"></i>Home</a></li>
-                        <li ><a href="about.html"><i className="fa fa-angle-right" aria-hidden="true"></i>About</a></li>
-                        <li><a href="courses.html"><i className="fa fa-angle-right" aria-hidden="true"></i>Courses</a></li>
-                        <li><a href="courses-details.html"><i className="fa fa-angle-right" aria-hidden="true"></i>Courses Details</a></li>
-                        <li><a href="events.html"><i className="fa fa-angle-right" aria-hidden="true"></i>Events</a></li>
-                        <li><a href="events-details.html"><i className="fa fa-angle-right" aria-hidden="true"></i>Events Details</a></li>                                
-                        <li><a href="blog.html"><i className="fa fa-angle-right" aria-hidden="true"></i>Blog</a></li>
-                        <li><a href="blog-details.html"><i className="fa fa-angle-right" aria-hidden="true"></i>Blog Details</a></li>
-                        <li><a href="teachers.html"><i className="fa fa-angle-right" aria-hidden="true"></i>Teachers</a></li>
-                        <li><a href="teachers-single.html"><i className="fa fa-angle-right" aria-hidden="true"></i>Teachers Details</a></li>
-                        <li><a href="contact.html"><i className="fa fa-angle-right" aria-hidden="true"></i>Contact</a></li>
-                        <li><a href="error-404.html"><i className="fa fa-angle-right" aria-hidden="true"></i>Error 404</a></li>
+                        <li className="active"><NavLink to="/"><i className="fa fa-angle-right" aria-hidden="true"></i>Home</NavLink></li>
+                        <li ><NavLink to="/about"><i className="fa fa-angle-right" aria-hidden="true"></i>About</NavLink></li>
+                        <li><NavLink to="/course"><i className="fa fa-angle-right" aria-hidden="true"></i>Courses</NavLink></li>
+
+                        <li><NavLink to="/event"><i className="fa fa-angle-right" aria-hidden="true"></i>Events</NavLink></li>
+
+                        <li><NavLink to="/blog"><i className="fa fa-angle-right" aria-hidden="true"></i>Blog</NavLink></li>
+
+                        <li><NavLink to="/profile"><i className="fa fa-angle-right" aria-hidden="true"></i>Profile</NavLink></li>
+                        <li><NavLink to="/contact"><i className="fa fa-angle-right" aria-hidden="true"></i>Contact</NavLink></li>
+
                     </ul>
                 </div>
                 <div className="col-lg-3 col-md-12">
@@ -109,11 +108,11 @@ class Footer extends Component {
             </div>
             <div className="footer-share">
                 <ul>
-                    <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-                    <li><a href="#"><i className="fa fa-google-plus"></i></a></li>
-                    <li><a href="#"><i className="fa fa-twitter"></i></a></li>
-                    <li><a href="#"><i className="fa fa-pinterest-p"></i></a></li>
-                    <li><a href="#"><i className="fa fa-vimeo"></i></a></li>    
+                    <li><NavLink to="#"><i className="fa fa-facebook"></i></NavLink></li>
+                    <li><NavLink to="#"><i className="fa fa-google-plus"></i></NavLink></li>
+                    <li><NavLink to="#"><i className="fa fa-twitter"></i></NavLink></li>
+                    <li><NavLink to="#"><i className="fa fa-pinterest-p"></i></NavLink></li>
+                    <li><NavLink to="#"><i className="fa fa-vimeo"></i></NavLink></li>
                 </ul>
             </div>                                
         </div>
@@ -122,7 +121,7 @@ class Footer extends Component {
     <div className="footer-bottom">
         <div className="container">
             <div className="copyright">
-                <p>© 2018 <a href="#">RS Theme</a>. All Rights Reserved.</p>
+                <p>© 2018 <NavLink to="#">RS Theme</NavLink>. All Rights Reserved.</p>
             </div>
         </div>
     </div>

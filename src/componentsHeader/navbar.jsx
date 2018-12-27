@@ -84,10 +84,6 @@ class Navbar extends Component{
                                 </ul>
                             </nav>
 
-                            <div className="right-bar-icon rs-offcanvas-link text-right">
-                                <NavLink className="hidden-xs rs-search" data-target=".search-modal" data-toggle="modal"
-                                         to="#"><i className="fa fa-search"></i></NavLink>
-                            </div>
 
                         </div>
                     </div>

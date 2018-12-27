@@ -9,7 +9,7 @@ import { CSVLink, CSVDownload } from "react-csv";
 
 class Course extends Component{
  componentDidMount=()=>{
-       axios.get('/home').then((res)=>this.props.refreshcoursereducer(res.data));
+       axios.get('/courses').then((res)=>this.props.refreshcoursereducer(res.data));
  }
 
  toggleedit = () => {

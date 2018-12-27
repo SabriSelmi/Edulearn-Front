@@ -3,14 +3,17 @@ import axios from "axios";
 import ClassProffItem from './classproffitem';
 import folder from './images/addfolder.png';
 import user from './images/users.png';
-import {NavLink} from "react-router-dom";
+import Professorgrades from './professorGrades';
+import {NavLink,Route} from 'react-router-dom';
 import { Container, Button, Modal, ModalBody, ModalHeader, ModalFooter } from 'mdbreact';
 
 class Professorclasses extends React.Component {
 constructor(props){
     super(props)
     this.state={
-classes:[],
+classe1:[],
+classe2:[],
+classe3:[],
 toogleupdate:false,
 modaldelete: false,
     }
@@ -30,11 +33,19 @@ this.setState({ numPages });
 
 
   componentDidMount(){
-        axios.get(`/user/${this.props.id}/classes`).then(res=>
+        axios.get(`/user/${this.props.id}/departement1`).then(res=>
             this.setState({
-              classes:res.data
-            }))       
-        console.log(this.state.classes)
+              classe1:res.data
+            }))     
+            axios.get(`/user/${this.props.id}/departement2`).then(res=>
+              this.setState({
+                classe2:res.data
+              }))     
+              axios.get(`/user/${this.props.id}/departement3`).then(res=>
+                this.setState({
+                  classe3:res.data
+                }))       
+        console.log("aa"+this.state.classes)
         }
     render() {
         console.log(this.props.id)
@@ -55,83 +66,82 @@ this.setState({ numPages });
 												<thead>
 													<tr>
 														<th>Class</th>
-                                                        <th>Subject</th>
-                                                        <th>Action</th>
+                                                     
+                            <th>Action</th>
 													</tr>
 												</thead>
-												<tbody>
-                                                <tr>
-                                                    <td>Class A</td>
-                                                    <td>Science</td>
-                                                    <td>
-                                                    <a><img  src={folder} style={{height:"35px"}} alt="delete"  onClick={this.toggledelete}    /></a>
-                                                    <NavLink className="ml-2" to="/profile/grades"><img  src={user} style={{height:"30px"}} alt="delete"  onClick={this.toggledelete}    /></NavLink>
-                                                    </td>
+												<tbody>  
+                                        <tr>
+  <td>{this.state.classe1}</td>
+  <td>
+  <a><img  src={folder} style={{height:"35px"}} alt="delete"  onClick={this.toggledelete}    /></a>
+  <NavLink    Redirect to={`/profile/grades`}  className="ml-2"><img  src={user} style={{height:"30px"}} alt="grades"  /></NavLink>
+  </td>
 
 
-                                                    <Modal isOpen={this.state.modaldelete} size="sm" frame position="top" style={{marginTop:"250px"}}>
-                                                    <ModalBody>
+  <Modal isOpen={this.state.modaldelete} size="sm" frame position="top" style={{marginTop:"250px"}}>
+  <ModalBody>
 <label htmlFor="file">Load from file:</label>
-            {' '}
-            <input
-              type="file"
-              onChange={this.onFileChange}
-            />   
-  </ModalBody>
-   <ModalFooter>
-    <NavLink color="secondary" onClick={this.onclick} Redirect to='/profile/classes' onClick={this.toggledelete} >Close</NavLink>
-  </ModalFooter> 
+{' '}
+<input
+type="file"
+onChange={this.onFileChange}
+/>   
+</ModalBody>
+<ModalFooter>
+<NavLink color="secondary" onClick={this.onclick} Redirect to='/profile/classes' onClick={this.toggledelete} >Close</NavLink>
+</ModalFooter> 
 </Modal>
-           
- </tr>
- <tr>
-                                                    <td>Class B</td>
-                                                    <td>Science</td>
-                                                    <td>
-                                                    <a><img  src={folder} style={{height:"35px"}} alt="delete"  onClick={this.toggledelete}    /></a>
-                                                    <NavLink className="ml-2" to="/profile/gradesB"><img  src={user} style={{height:"30px"}} alt="delete"  onClick={this.toggledelete}    /></NavLink>
-                                                    </td>
+
+</tr>
+                    
+<tr>
+  <td>{this.state.classe2}</td>
+  <td>
+  <a><img  src={folder} style={{height:"35px"}} alt="delete"  onClick={this.toggledelete}    /></a>
+  <NavLink    Redirect to='/profile/grades'  className="ml-2"><img  src={user} style={{height:"30px"}} alt="delete"  /></NavLink>
+  </td>
 
 
-                                                    <Modal isOpen={this.state.modaldelete} size="sm" frame position="top" style={{marginTop:"250px"}}>
-                                                    <ModalBody>
+  <Modal isOpen={this.state.modaldelete} size="sm" frame position="top" style={{marginTop:"250px"}}>
+  <ModalBody>
 <label htmlFor="file">Load from file:</label>
-            {' '}
-            <input
-              type="file"
-              onChange={this.onFileChange}
-            />   
-  </ModalBody>
-   <ModalFooter>
-    <NavLink color="secondary" onClick={this.onclick} Redirect to='/profile/classes' onClick={this.toggledelete} >Close</NavLink>
-  </ModalFooter> 
+{' '}
+<input
+type="file"
+onChange={this.onFileChange}
+/>   
+</ModalBody>
+<ModalFooter>
+<NavLink color="secondary" onClick={this.onclick} Redirect to='/profile/classes' onClick={this.toggledelete} >Close</NavLink>
+</ModalFooter> 
 </Modal>
-           
- </tr>
- <tr>
-                                                    <td>Class C</td>
-                                                    <td>Science</td>
-                                                    <td>
-                                                    <a><img  src={folder} style={{height:"35px"}} alt="delete"  onClick={this.toggledelete}    /></a>
-                                                    <a className="ml-2"><img  src={user} style={{height:"30px"}} alt="delete"  onClick={this.toggledelete}    /></a>
-                                                    </td>
+
+</tr>      
+<tr>
+  <td>{this.state.classe3}</td>
+  <td>
+  <a><img  src={folder} style={{height:"35px"}} alt="delete"  onClick={this.toggledelete}    /></a>
+  <NavLink    Redirect to='/profile/grades'  className="ml-2"><img  src={user} style={{height:"30px"}} alt="delete"  /></NavLink>
+  </td>
 
 
-                                                    <Modal isOpen={this.state.modaldelete} size="sm" frame position="top" style={{marginTop:"250px"}}>
-                                                    <ModalBody>
+  <Modal isOpen={this.state.modaldelete} size="sm" frame position="top" style={{marginTop:"250px"}}>
+  <ModalBody>
 <label htmlFor="file">Load from file:</label>
-            {' '}
-            <input
-              type="file"
-              onChange={this.onFileChange}
-            />   
-  </ModalBody>
-   <ModalFooter>
-    <NavLink color="secondary" onClick={this.onclick} Redirect to='/profile/classes' onClick={this.toggledelete} >Close</NavLink>
-  </ModalFooter> 
+{' '}
+<input
+type="file"
+onChange={this.onFileChange}
+/>   
+</ModalBody>
+<ModalFooter>
+<NavLink color="secondary" onClick={this.onclick} Redirect to='/profile/classes' onClick={this.toggledelete} >Close</NavLink>
+</ModalFooter> 
 </Modal>
-           
- </tr>
+
+</tr>
+ 
 												</tbody>
 											</table>
 										</div>
@@ -140,7 +150,7 @@ this.setState({ numPages });
                   </div>
                   </div>
                   </div>
-           
+                  <Route exact path={`/profile/${this.state.classe1}/grades` } render ={(props)=> <Professorgrades classe1={this.state.classe1}/>}/>
                  </div>
         </div>
       );

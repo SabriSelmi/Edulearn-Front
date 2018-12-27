@@ -12,7 +12,7 @@ toogleupdate:false
 
 
   componentDidMount(){
-        axios.get(`/user/${this.props.id}/ClassB`).then(res=>
+        axios.get(`/course/ScienceDegreeC`).then(res=>
             this.setState({
               students:res.data
             }))       

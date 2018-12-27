@@ -11,18 +11,21 @@ class AddProfessor extends Component{
     constructor(props){
         super(props)
         this.state={
-         
-              
                             name:"",
                             lastname:"",
                             mobile:"",
                             email:"",
-                            departement:"",
+                            
+                                departement1:"",
+                                departement2:"",
+                                departement3:"",
+                            
                             admissiondate:"",
                             password:"",
                             class:"",
                             dateofbirth:"",
                             adresse:"",
+                            classes:[]
                             
             
         }
@@ -30,6 +33,14 @@ class AddProfessor extends Component{
     
     
     }
+
+    componentDidMount =()=>{
+        axios.get("/courses").then(res=>
+          this.setState({
+            classes:res.data
+          }))    
+}
+
 
     handleForce = data => {
         var  name= data[0].toString();
@@ -60,6 +71,7 @@ class AddProfessor extends Component{
         .catch(err => console.log("err"));
     }
     render(){
+        console.log(this.state.classes)
         return(
             <div className="page-content-wrapper col-lg-9 col-md-9 col-sm-9 m-3" >
 
@@ -164,18 +176,47 @@ class AddProfessor extends Component{
                                                 </div>
                                             </div>
                                             <div className="form-group row">
-                                                <label className="control-label col-md-3">Departments
+                                                <label className="control-label col-md-3">Class1
                                                     <span className="required"> * </span>
                                                 </label>
                                                 <div className="col-md-8">
-                                                    <select className="form-control input-height" name="departement" onChange={this.onchange}  value={this.state.departement}>
-                                                        <option value="">Select...</option>
-                                                        <option value="Computer ">Computer</option>
-                                                        <option value="Mechanical">Mechanical</option>
-                                                        <option value="Mathematics">Mathematics</option>
-                                                        <option value="Commerce">Commerce</option>
-                                                        <option value="Music">Music</option>
-                                                        <option value="Science">Science</option>
+                                                    <select className="form-control input-height" name="departement1" onChange={this.onchange}  value={this.state.departement1}>
+                                                     
+                                                        {
+                                                       this.state.classes.map((el,index)=>
+                                                       <option key={index} value={el.nom}>{el.nom}</option>
+                                                     )}
+													
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div className="form-group row">
+                                                <label className="control-label col-md-3">Class2
+                                                    <span className="required"> * </span>
+                                                </label>
+                                                <div className="col-md-8">
+                                                    <select className="form-control input-height" name="departement2" onChange={this.onchange}  value={this.state.departement2}>
+                                                     
+                                                        {
+                                                       this.state.classes.map((el,index)=>
+                                                       <option key={index} value={el.nom}>{el.nom}</option>
+                                                     )}
+													
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div className="form-group row">
+                                                <label className="control-label col-md-3">Class3
+                                                    <span className="required"> * </span>
+                                                </label>
+                                                <div className="col-md-8">
+                                                    <select className="form-control input-height" name="departement3" onChange={this.onchange}  value={this.state.departement3}>
+                                                     
+                                                        {
+                                                       this.state.classes.map((el,index)=>
+                                                       <option key={index} value={el.nom}>{el.nom}</option>
+                                                     )}
+													
                                                     </select>
                                                 </div>
                                             </div>

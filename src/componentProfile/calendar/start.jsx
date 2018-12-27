@@ -1,15 +1,14 @@
 
 import * as React from 'react';
 import {
-    ScheduleComponent, ViewsDirective, ViewDirective, TimelineViews, Inject, ResourcesDirective,
-    ResourceDirective, Resize, DragAndDrop
+    ScheduleComponent, ViewsDirective, ViewDirective, TimelineViews, ResourcesDirective,
+    ResourceDirective, Inject
 } from '@syncfusion/ej2-react-schedule';
 import './timeline-resources.css';
 import { extend, Internationalization, isNullOrUndefined } from '@syncfusion/ej2-base';
 import SampleBase from './sample-base';
 import * as dataSource from './datasource.json';
-import axios from "axios";
-import Meetings from './meeting';
+
 
 /**
  * schedule room scheduler sample
@@ -54,41 +53,7 @@ export default class TimelineResource extends SampleBase {
             <div className="room-capacity">{this.getRoomCapacity(props)}</div>
         </div>);
     }
-    onActionBegin(args) {
-        if (args.requestType === 'eventCreate' || args.requestType === 'eventChange') {
-            let data;
-            if (args.requestType === 'eventCreate') {
-                data = args.data[0];
-                axios.post("/calendar", {...data})
-
-            }
-            else if (args.requestType === 'eventChange') {
-                data = args.data;
-
-                axios.put(`/calendar/${data._id}`,{
-			Id: data.Id,
-            Subject: data.Subject,
-            Description: data.Description,
-            StartTime: data.StartTime,
-            EndTime: data.EndTime,
-            RoomId:data.RoomId,
-	        IsAllDay:data.IsAllDay,
-            Location:data.Location,
-            Comments:data.Comments,
-            IsTimeZone:data.IsTimeZone,
-            Repeat:data.Repeat,
-})
-
-            }
-
-            let groupIndex = this.scheduleObj.eventBase.getGroupIndexFromEvent(data);
-
-            if (!this.scheduleObj.isSlotAvailable(data.StartTime, data.EndTime, groupIndex)) {
-                args.cancel = true;
-
-            }
-        }
-    }
+    
     onEventRendered(args) {
         let data = args.data;
 
@@ -102,7 +67,7 @@ export default class TimelineResource extends SampleBase {
             let x=new Date();
 
 
-            if (args.date < new Date(x.getFullYear(),x.getMonth(),x.getDate(),0,0)) {
+            if (args.date < new Date(2025,12,12,0,0)) {
                 args.element.setAttribute('aria-readonly', 'true');
                 args.element.classList.add('e-read-only-cells');
             }
@@ -112,38 +77,10 @@ export default class TimelineResource extends SampleBase {
             target.innerHTML = '<div class="name">Rooms</div><div class="type">Professor</div><div class="capacity">Capacity</div>';
         }
     }
-    onPopupOpen(args) {
-        let data = args.data;
-
-        if (args.type === 'QuickInfo' || args.type === 'Editor' || args.type === 'RecurrenceAlert' || args.type === 'DeleteAlert') {
-            let target = (args.type === 'RecurrenceAlert' ||
-                args.type === 'DeleteAlert') ? data.element[0] : args.target;
-            if(args.type==='DeleteAlert'){
-
-                axios.delete(`/calendar/${data.event._id}`);
-            }
-
-            if (!isNullOrUndefined(target) && target.classList.contains('e-work-cells')) {
-
-                if ((target.classList.contains('e-read-only-cells')) ||
-                    (!this.scheduleObj.isSlotAvailable(data.startTime, data.endTime, data.groupIndex))) {
-                    args.cancel = true;
-
-                }
-            }
-            else if (!isNullOrUndefined(target) && target.classList.contains('e-appointment') &&
-                (this.isReadOnly(data.EndTime))) {
-                args.cancel = true;
-
-            }
-        }
-    }
+  
     render() {
 
-        return (<div className='schedule-control-section col-lg-9 col-md-9 col-sm-9 m-3'>
-        <Meetings/>
-            <div className='col-lg-12 control-section'>
-                <div className='control-wrapper'>
+        return (
                     <ScheduleComponent cssClass='timeline-resource' ref={schedule => this.scheduleObj = schedule} width='100%' height='650px' selectedDate={new Date(new Date().getFullYear(),new Date().getMonth(),new Date().getDate())} workHours={{ start: '08:00', end: '18:00' }}  timeScale={{ interval: 60, slotCount: 1 }} resourceHeaderTemplate={this.resourceHeaderTemplate.bind(this)} eventSettings={{
                         dataSource: this.props.roomData,
                         fields: {
@@ -154,7 +91,7 @@ export default class TimelineResource extends SampleBase {
                             startTime: { title: 'From', name: 'StartTime' },
                             endTime: { title: 'To', name: 'EndTime' }
                         }
-                    }} eventRendered={this.onEventRendered.bind(this)} popupOpen={this.onPopupOpen.bind(this)} actionBegin={this.onActionBegin.bind(this)} renderCell={this.onRenderCell.bind(this)} group={{ enableCompactView: false, resources: ['MeetingRoom'] }}>
+                    }} eventRendered={this.onEventRendered.bind(this)}  renderCell={this.onRenderCell.bind(this)} group={{ enableCompactView: false, resources: ['MeetingRoom'] }}>
                         <ResourcesDirective>
                             <ResourceDirective field='RoomId' title='Room Type' name='MeetingRoom' allowMultiple={true} dataSource={this.ownerData} textField='text' idField='id' colorField='color'>
                             </ResourceDirective>
@@ -163,11 +100,8 @@ export default class TimelineResource extends SampleBase {
                             <ViewDirective option='TimelineDay'/>
                             <ViewDirective option='TimelineWeek'/>
                         </ViewsDirective>
-                        <Inject services={[TimelineViews, Resize, DragAndDrop]}/>
+                        <Inject services={[TimelineViews]}/>
                     </ScheduleComponent>
-                </div>
-            </div>
-
-        </div>);
-    }
+               
+          )  }
 }

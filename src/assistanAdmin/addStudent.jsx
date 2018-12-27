@@ -1,7 +1,7 @@
 import React,{Component} from "react";
-import { BrowserRouter as Router, Route, Link,Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
-import FlashMassage from 'react-flash-message';
+
 
 class AddStudent extends Component{
 constructor(props){
@@ -19,6 +19,9 @@ constructor(props){
 						class:"",
 						dateofbirth:"",
                         adresse:"",
+                        parentName:"",
+                        parentEmail:"",
+                        parentNumber:""
                         
         
     }
@@ -34,10 +37,16 @@ onchange=(e)=>{
 onsubmit = (e) =>{
     e.preventDefault();
     axios.post('/student',{...this.state})
+
+    .then(res => console.log(res.data))
+    .catch(err => console.log("err"));
+
+    axios.post('/parent',{name:this.state.parentName,email:this.state.parentEmail,password:this.state.password,kids:[{name:this.state.name,lastName:this.state.lastname,email:this.state.email,mobile:this.state.mobile,class:this.state.class}]})
     .then(res => console.log(res.data))
     .catch(err => console.log("err"));
 }
     render(){
+        console.log(this.state)
         return(
             <div className="page-content-wrapper col-lg-9 col-md-9 col-sm-9 m-3">
                 <div className="page-content">
@@ -168,7 +177,7 @@ onsubmit = (e) =>{
                                                 <div className="col-md-8">
                                                     <input type="text" name="parentName"
                                                            placeholder="enter parents name"
-                                                           className="form-control input-height"/>
+                                                           className="form-control input-height" onChange={this.onchange}/>
                                                 </div>
                                             </div>
                                             <div className="form-group row">
@@ -176,8 +185,18 @@ onsubmit = (e) =>{
                                                     <span className="required"> * </span>
                                                 </label>
                                                 <div className="col-md-8">
-                                                    <input name="number" type="text" placeholder="parents mobile number"
-                                                           className="form-control input-height"/>
+                                                    <input name="parnetNumber" type="text" placeholder="parents mobile number"
+                                                           className="form-control input-height" onChange={this.onchange}/>
+                                                </div>
+                                            </div>
+
+                                            <div className="form-group row">
+                                                <label className="control-label col-md-3">Parents Email 
+                                                    <span className="required"> * </span>
+                                                </label>
+                                                <div className="col-md-8">
+                                                    <input name="parentEmail" type="text" placeholder="parents email"
+                                                           className="form-control input-height" onChange={this.onchange}/>
                                                 </div>
                                             </div>
                                             <div className="form-group row">
@@ -205,13 +224,7 @@ onsubmit = (e) =>{
                                                               className="form-control-textarea" rows="5" value={this.state.address} onChange={this.onchange} ></textarea>
                                                 </div>
                                             </div>
-                                            <div className="form-group row">
-                                                <label className="control-label col-md-3">Profile Picture
-                                                </label>
-                                                <div className="compose-editor">
-                                                    <input type="file" className="default" multiple/>
-                                                </div>
-                                            </div>
+                                            
                                             <div className="form-actions">
                                                 <div className="row">
                                                     <div className="offset-md-3 col-md-9">

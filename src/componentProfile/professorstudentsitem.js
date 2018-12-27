@@ -36,8 +36,6 @@ this.state={
          
                                                     <td>{item.name}</td>
                                                     <td>{item.lastname}</td>
-                                                    <td>{item.email}</td>
-                                                    <td>{item.class}</td>
                                                    <td> <input type="number" name="note" /></td>
            
  </tr>

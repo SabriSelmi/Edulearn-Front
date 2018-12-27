@@ -6,8 +6,29 @@ import Professorclasses from './ProfClasses';
 import Professorgrades from './professorGrades';
 import ProfessorgradesB from './professorGradesB';
 import Professorcalender from './ProfCalender';
+import axios from "axios";
 class Professor extends React.Component {
 
+    state = {
+        roomData: [
+            {
+                Id: "",
+
+                Subject: "",
+                Description: "",
+                StartTime: "",
+                EndTime: "",
+                RoomId: ""
+            },
+        ],
+
+    }
+    componentDidMount()
+    {
+        axios.get("/calendar").then(res => this.setState({
+            roomData: res.data
+        }))
+    }
     render() {
         console.log(this.props)
       return (
@@ -36,9 +57,10 @@ class Professor extends React.Component {
                         </ul>
 
                         <div className="profile-userbuttons">
-                          <NavLink type="button" className="btn btn-circle red btn-sm" to="/profile/classes">Classes</NavLink>
+                          <NavLink type="button" className="btn btn-circle green btn-sm" to="/profile/classes">Classes</NavLink>
                           <NavLink type="button" className="btn btn-circle  yellow btn-sm" to="/profile/grades">Grades</NavLink>
                           <NavLink type="button" className="btn btn-circle  blue btn-sm" to="/profile/calender">Calender</NavLink>
+                          <NavLink type="button" className="btn btn-circle red btn-sm" to="/profile" onClick={this.props.Click}>Logout</NavLink>
                         </div>
 
                     </div>
@@ -47,7 +69,7 @@ class Professor extends React.Component {
                 <Route exact path="/profile/grades"  render ={(props)=> <Professorgrades id={this.props.user._id}/>}/>
                 <Route exact path="/profile/gradesB"  render ={(props)=> <ProfessorgradesB id={this.props.user._id}/>}/>
                 <Route exact path="/profile/gradesC"  render ={(props)=> <Professorgrades id={this.props.user._id}/>}/>
-                <Route exact path="/profile/calender" component={Professorcalender}/>
+                <Route exact path="/profile/calender" render={()=><Professorcalender roomData={this.state.roomData}/>}/>
 </div>
         </div>
       );

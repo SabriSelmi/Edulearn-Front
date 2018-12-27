@@ -57,12 +57,14 @@ class Proff extends React.PureComponent {
 //   }
 
   render() {
-    console.log(`${this.props.student._id} just rendered`);
+    console.log(`${this.props.student} just rendered`);
     return (
       
           	<tr key={this.props.student._id}>
 														<td>{this.props.student.name}</td>
-														<td>{this.props.student.designation}</td>
+														<td>{this.props.student.departement1}</td>
+                            <td>{this.props.student.departement2}</td>
+                            <td>{this.props.student.departement3}</td>
 														<td>{this.props.student.mobile}</td>
 														<td>{this.props.student.email}</td>
                             <td>{this.props.student.adresse}</td>
