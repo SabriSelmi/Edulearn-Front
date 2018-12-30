@@ -38,7 +38,7 @@ addMeeting=()=>{
     date:this.state.date,
     heure:this.state.heure,
     kidName:this.state.kidName,
-    kidLastName:this.state.kidLastName})
+    kidLastName:this.state.kidLastName}).then(alert("meeting added"))
 }
 toggledelete = () => {
     this.setState({
@@ -65,18 +65,18 @@ onsubmit = () =>{
        
 
 
-        })
+        }).then(alert("profile edited"))
     }
 
 render() { 
-        console.log("render", this.props.user)
+       
         return ( 
          
     
         <div style={{marginTop:"9%"}}>
         <div class="container bootstrap snippet">
         <div class="row">
-              <div class="col-sm-10"><h1>Welcome {this.state.Parent.name}</h1></div>
+              <div class="col-sm-10"><h1>Welcome {this.props.user.name}</h1></div>
             <div class="col-sm-2" onClick={this.props.Click}><NavLink to="/profile" class="pull-right"><img title="profile image" class="img-circle img-responsive" src="http://www.gravatar.com/avatar/28fd20ccec6865e2d5f0e1f4446eb7bf?s=100"/></NavLink></div>
        <span class="col-sm-11"></span>
        <h5 class="col-sm-1">Logout</h5>
@@ -167,7 +167,7 @@ render() {
                           
                        </div>
                        <br/> 
-                       <button class="btn btn-lg btn-success" type="submit"><i class="glyphicon glyphicon-ok-sign" onClick={this.toggledelete} ></i> Save</button>
+                       <button class="btn btn-lg btn-success" type="submit" onClick={this.addMeeting}><i class="glyphicon glyphicon-ok-sign"  ></i> Save</button>
                        				
                           </div>
               </div>
@@ -179,7 +179,7 @@ render() {
                
                     <div className="row rs-vertical-middle">
                     
-                     {/*this.props.user.kids.map((el,i)=><Kids key={i} el={el}/>)*/}
+                    { this.props.user.kids.map((el,i)=><Kids key={i} el={el}/>)}
                       </div>
                       </div>
                   </div>

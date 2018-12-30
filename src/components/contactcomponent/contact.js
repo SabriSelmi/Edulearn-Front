@@ -3,80 +3,54 @@ import React, { Component } from 'react';
 import Input from 'react-validation/build/input';
 import Validator from './validator';*/
 import {NavLink} from "react-router-dom";
-
+import axios from 'axios';
 import './contact.css';
 
-const formValid = ({formErrors, ...rest}) => {
-    let valid = true;
-    Object.values(formErrors).forEach(val =>{
-        val.length>0 &&(valid=false);
-	});
+// const formValid = ({formErrors, ...rest}) => {
+//     let valid = true;
+//     Object.values(formErrors).forEach(val =>{
+//         val.length>0 &&(valid=false);
+// 	});
 	
-	 // validate the form was filled out
-	 Object.values(rest).forEach(val => {
-		val === null && (valid = false);
-	  });
+// 	 // validate the form was filled out
+// 	 Object.values(rest).forEach(val => {
+// 		val === null && (valid = false);
+// 	  });
 	
-    return valid;
-};
+//     return valid;
+// };
 
-const emailRegex = RegExp(
-    /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-  );
+// const emailRegex = RegExp(
+//     /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+//   );
 class Contact extends Component {
     constructor(props){
         super(props);
         this.state={
-            fname:null,
-            lname:null,
-            email:null,
-            message:null,
-            formErrors:{
-                fname:"",
-                lname:"",
-                email:"",
-                message:""
-            }
+            fname:"",
+            lname:"",
+            email:"",
+			message:"",
+			subject:""
+            // formErrors:{
+            //     fname:"",
+            //     lname:"",
+            //     email:"",
+            //     message:""
+            // }
         }
     }
-    handleSubmit=(e)=>{
-        e.preventDefault();
-        if (formValid(this.state.formErrors)){
-            console.log(`${this.state.firstName}`)
-        }
-        else {
-            console.error("invalid input data")
-        }
-    }
-    handleChange=(e)=>{
-        e.preventDefault();
-        const {name,value} = e.target;
-        let formErrors = {...this.state.formErrors};
-        switch(name){
-            case 'fname':
-            formErrors.fname = value.length <3 ?'minimun 3 characters required'
-            :"";
-            break;
-            case 'lname':  
-             formErrors.lname = value.length <3 ?'minimun 3 characters required'
-            :"";
-            break;
-			case 'email':  
-			formErrors.email = emailRegex.test(value)
-			? ""
-			: "invalid email address"
-           ;
-           break;
-           case 'message':  
-           formErrors.message = value.length ===0 ?'minimun 3 characters required'
-          :"";
-          break;
-          default:
-          break;
-        }
-            this.setState({formErrors,[name]:value},()=>console.log(this.state))
-    }
-
+	handleChange=(e)=>{
+		this.setState({
+			[e.target.name]:e.target.value
+		})
+	}
+	onsubmit = (e) =>{
+		e.preventDefault();
+		axios.post('/contactus',{...this.state})
+		.then(alert("message sent"))
+		.catch(err => console.log("err"));
+	}
   render() {
       const {formErrors}=this.state;
     return (<div>
@@ -138,15 +112,15 @@ class Contact extends Component {
 							<div className="col-md-6 col-sm-12">
 									<div className="form-group">
 										<label>First Name*</label>
-										<input style={formErrors.fname.length>0 ?{border:"1px solid orangered"}:null} name="fname" id="fname" className="form-control" placeholder="First Name" type="text" noValidate onChange={this.handleChange}/>
-                                        {formErrors.fname.length>0 &&(<span className="errorMessage">{formErrors.fname}</span>)}
+										<input  name="fname" id="fname" className="form-control" placeholder="First Name" type="text" noValidate onChange={this.handleChange}/>
+                                        {/* {formErrors.fname.length>0 &&(<span className="errorMessage">{formErrors.fname}</span>)} */}
 									</div>
 								</div>
 								<div className="col-md-6 col-sm-12">
 									<div className="form-group">
 										<label>Last Name*</label>
-										<input style={formErrors.lname.length>0 ?{border:"1px solid orangered"}:null}  name="lname" id="lname" className="form-control" placeholder="Last Name" type="text" noValidate onChange={this.handleChange}/>
-                                        {formErrors.lname.length>0 &&(<span className="errorMessage">{formErrors.lname}</span>)}
+										<input   name="lname" id="lname" className="form-control" placeholder="Last Name" type="text" noValidate onChange={this.handleChange}/>
+                                     
 									</div>
 								</div>
 							</div>
@@ -155,16 +129,14 @@ class Contact extends Component {
 									<div className="form-group">
                                     <label>
                     					Email*</label>
-                    <input style={formErrors.email.length>0 ?{border:"1px solid orangered"}:null}  className="form-control" placeholder='email@email.com' name='email' type="email" noValidate onChange={this.handleChange}/>
-					{formErrors.email.length > 0 && (
-                <span className="errorMessage">{formErrors.email}</span>
-              )}
+                    <input  className="form-control" placeholder='email@email.com' name='email' type="email" noValidate onChange={this.handleChange}/>
+	
 									</div>
 								</div>
 								<div className="col-md-6 col-sm-12">
 									<div className="form-group">
 										<label>Subject *</label>
-										<input name="subject" id="subject" className="form-control" placeholder="Subject" type="text"/>
+										<input name="subject" id="subject" className="form-control" placeholder="Subject" type="text" onChange={this.handleChange}/>
 									</div>
 								</div>
 							</div>
@@ -172,13 +144,13 @@ class Contact extends Component {
 								<div className="col-md-12 col-sm-12">    
 									<div className="form-group">
 										<label>Message *</label>
-										<textarea cols="40" rows="10" id="message" name="message" placeholder="Enter your message here..." className="textarea form-control"></textarea>
-                                        {formErrors.message.length>0&&(<span className="errorMessage">{formErrors.message}</span>)}
+										<textarea cols="40" rows="10" id="message" name="message" placeholder="Enter your message here..." className="textarea form-control" onChange={this.handleChange}></textarea>
+                                       
 									</div>
 								</div>
 							</div>							        
 							<div className="form-group mb-0">
-								<input className="btn-send" type="submit" value="Submit Now"/>
+								<input className="btn-send" type="submit" value="Submit Now" onClick={this.onsubmit}/>
 							</div>
 							   
 						</fieldset>

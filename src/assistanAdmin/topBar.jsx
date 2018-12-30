@@ -183,7 +183,7 @@ navDisNone=()=>{
                     <Toolbar>
 
                         <Typography className={classes.title} variant="h3" color="inherit" noWrap>
-                            Welcome {this.props.user}
+                            Welcome {this.props.user.name}
                         </Typography>
          
                         <div className={classes.grow} />

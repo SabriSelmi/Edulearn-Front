@@ -44,7 +44,7 @@ export default class TimelineResource extends SampleBase {
         return value.resourceData.capacity;
     }
     isReadOnly(endDate) {
-        return (endDate < new Date(2018, 6, 31, 0, 0));
+        return (endDate < new Date(2019, 6, 31, 0, 0));
     }
     resourceHeaderTemplate(props) {
         return (<div className="template-wrap">

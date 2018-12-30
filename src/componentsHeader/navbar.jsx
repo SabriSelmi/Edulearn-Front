@@ -59,7 +59,7 @@ class Navbar extends Component{
 
         <div className={`menu-area menu-sticky ${this.state.test}`} style={{display:`${this.props.isIdent? "block":"none"}`,backgroundColor:"transparent"}}>
             <div className="container">
-                <div className="main-menu">
+                <div className="main-menu" style={{backgroundColor:"black"}}>
                     <div className="row">
                         <div className={`col-sm-12 `}>
 

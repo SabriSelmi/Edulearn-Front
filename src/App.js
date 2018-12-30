@@ -7,18 +7,18 @@ import Header from "./components/Header";
 import Home from "./components/Home"
 // import Profile from "./components/Profile";
 import Profile from "./components/profile";
-import { Security, ImplicitCallback, SecureRoute } from '@okta/okta-react';
-import Login from "./authent/login";
+//import { Security, ImplicitCallback, SecureRoute } from '@okta/okta-react';
+//import Login from "./authent/login";
 // hello world
 import Contact from './components/contactcomponent/contact';
 import Event from './components/eventcomponent/event';
 import Course from './components/coursecomponent/course';
 import Navbar from './componentsHeader/navbar.jsx';
 
-import { BrowserRouter as Router, Route, Link,Redirect } from "react-router-dom";
+import {Route} from "react-router-dom";
 import ScrollUp from "./components/scrollUp";
 import Footer from "./components/footer";
-import axios from "axios";
+//import axios from "axios";
 
 
 /*const config = {
@@ -34,25 +34,26 @@ class App extends Component {
     constructor(){
         super()
         this.state={
-        isIdent:'',
-        role:'',
-        nav:true,
-        user:{}
-
-    }}
-aspire=(x,y)=>{
-    if (x===true && (y===0 || y===1 || y===2 || y===3 || y===4))
-    this.setState({
-
-        isIdent:x,
-        role:y
-    })
-    else
+            isIdent:'',
+            role:'',
+            nav:true,
+            user:{}
+    
+        }}
+    aspire=(x,y)=>{
+        if (x===true && (y.role===0 || y.role===1 || y.role===2 || y.role===3 || y.role===4))
         this.setState({
-            isIdent:false
+    
+            isIdent:x,
+            role:y.role,
+            user:y
         })
-
-}
+        else
+            this.setState({
+                isIdent:false
+            })
+    
+    }
 aspire1=(x)=>{
         this.setState({
             nav:x
@@ -61,7 +62,7 @@ aspire1=(x)=>{
 
 
     render() {
-console.log("user app", this.state.user)
+
         return (
            /* <Security issuer={config.issuer}
                       client_id={config.client_id}

@@ -19,7 +19,7 @@ import Dashbord from "./dashbordAdmin";
 import Sidebarmenu from "./sidebarmenu";
 import PrimarySearchAppBar from "./topBar";
 import TimelineResource from "../calendar/start";
-
+import Message from './message';
 
 
 
@@ -64,6 +64,7 @@ class Navigation extends React.Component
                     <Route path="/profile/userProfile" render={() => < UserProfile/>}/>
                     <Route path="/profile/addProfessor" render={() => < AddProfessor/>}/>
                     <Route  path="/profile/addEvent" render={() => < AddEvent/>}/>
+                    <Route  path="/profile/messages" render={() => <Message />}/>
                     <Route path="/profile/addStudent" component={AddStudent}/>
                     <Route path="/profile/calendar" render={() => <TimelineResource roomData={this.state.roomData}/>}/>
                     <Route exact  path="/profile/editStudent/:id" render ={(props)=> < EditStudent id={props.match.params.id}/>}/>

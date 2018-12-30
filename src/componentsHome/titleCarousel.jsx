@@ -14,8 +14,8 @@ class TitleCarousel extends Component {
                 <p className="text-white font-weight-bold animated fadeInUp" style={{fontSize:"1.5vw"}}>Fusce sem dolor, interdum in efficitur at, faucibus nec lorem.Sed nec molestie justo.<br/> Nunc quis sapien in arcu pharetra
                                                 volutpat.Morbi nec vulputate dolor.
                 </p>
-                <NavLink to="#" ><button className="btn btn-dark animated fadeInUp"  style={{fontSize:"1.5vw"}}>READ MORE</button></NavLink>
-                <NavLink to="/profile/signup" ><button className="btn btn-danger ml-3 animated fadeInUp"  style={{fontSize:"1.5vw"}} onClick={()=>{/*this.props.login()*/}}>GET STARTED NOW</button></NavLink>
+                <NavLink to="/about" ><button className="btn btn-dark animated fadeInUp"  style={{fontSize:"1.5vw"}}>READ MORE</button></NavLink>
+                <NavLink to="/profile" ><button className="btn btn-danger ml-3 animated fadeInUp"  style={{fontSize:"1.5vw"}} onClick={()=>{/*this.props.login()*/}}>Login</button></NavLink>
             </div>
 
 

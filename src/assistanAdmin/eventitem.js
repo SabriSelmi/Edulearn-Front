@@ -50,7 +50,7 @@ class Eventitem extends React.PureComponent {
 //   }
 
   render() {
-    console.log(`${this.props.student._id} just rendered`);
+    
     return (
       
           	<tr key={this.props.student._id}>

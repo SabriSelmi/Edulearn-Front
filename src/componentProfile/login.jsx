@@ -38,19 +38,19 @@ export default class Loginpage extends Component{
             [event.target.name]:event.target.value
         })
     }
-   search=(event)=>{
-       var user=this.state.users.filter(el=>`${el.password}${el.email}`===`${this.state.pass}${this.state.email}`)
-       if (user.length===0 ) {
-           user[0] = {role: 5}
-           alert("user undefined");
-           event.preventDefault()
-       }
-       this.setState({
-           user:user[0]
-       })
-
-       this.props.aspire(true,user[0].role)
-    }
+    search=(event)=>{
+        var user=this.state.users.filter(el=>`${el.password}${el.email}`===`${this.state.pass}${this.state.email}`)
+        if (user.length===0 ) {
+            user[0] = {role: 5}
+            alert("user undefined");
+            event.preventDefault()
+        }
+        this.setState({
+            user:user[0]
+        })
+ 
+        this.props.aspire(true,user[0])
+     }
     fakeAuth=()=>{
         this.setState({
             isIdent:true,
@@ -66,14 +66,14 @@ export default class Loginpage extends Component{
         this.props.aspire(false,this.state.user.role)
     }
     render(){
-        console.log(this.state.users)
+       
      if (this.props.stateApp.role===0 && this.props.stateApp.isIdent)
         {
-           return (<Dashboard Click={this.fakeDisconnect} user={this.state.user.name} aspire1={(x)=>this.props.aspire1(x)}/>);
+           return (<Dashboard Click={this.fakeDisconnect} user={this.props.stateApp.user} aspire1={(x)=>this.props.aspire1(x)}/>);
         }
        else
        if (this.props.stateApp.role===2 && this.props.stateApp.isIdent) {
-           return (<Professor Click={this.fakeDisconnect} user={this.state.user} users={this.state.users} aspire1={(x)=>this.props.aspire1(x)} onClick={this.fakeDisconnect}/>);
+           return (<Professor Click={this.fakeDisconnect} user={this.props.stateApp.user} users={this.state.users} aspire1={(x)=>this.props.aspire1(x)} onClick={this.fakeDisconnect}/>);
        }
         else
        if (this.props.stateApp.role===1 && this.props.stateApp.isIdent) {
@@ -81,7 +81,7 @@ export default class Loginpage extends Component{
        }
         else
        if (this.props.stateApp.role===3 && this.props.stateApp.isIdent) {
-           return <Parent Click={this.fakeDisconnect} user={this.state.user}  aspire1={(x)=>this.props.aspire1(x)}  onClick={this.fakeDisconnect}/>;
+           return <Parent Click={this.fakeDisconnect} user={this.props.stateApp.user} aspire1={(x)=>this.props.aspire1(x)}  onClick={this.fakeDisconnect}/>;
        }
         else
        if (this.props.stateApp.role===4 && this.props.stateApp.isIdent) {
